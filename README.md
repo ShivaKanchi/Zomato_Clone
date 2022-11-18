@@ -17,7 +17,7 @@ Bable(To use es6 features and to make code more optimized)
 --Schemas:
 User*
 Restaurant(_id,menu...,)
-Menu(_id,Restaurant._id,Review._id...,Food...,)
+Menu(_id,Restaurant._id,Food...,Recommendations...)
 Food(_id,Menu._id)
 Order(User._id)
 Review(_id,Restaurant._id)
