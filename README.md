@@ -1,19 +1,18 @@
 # Zomato_Clone
 A basic Food Delivery Website 
 
-
-#Packages:
+#Server:
+-Packages:
 Express
 Dotenv
 Mongoose
 
-#DevPackages:
+-DevPackages:
 Nodemon
 Bable(To use es6 features and to make code more optimized)
 
-#API plan and scheming
-
--Schemas:
+-API plan and scheming
+--Schemas:
 User*
 Restaurant(_id,menu...,)
 Menu(_id,Restaurant._id,Review._id...,Food...,)
