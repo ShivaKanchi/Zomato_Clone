@@ -9,6 +9,7 @@ Dotenv
 Mongoose
 bcrypt
 JsonWebToken
+Passport and Passport-jwt(Authorization of token and Authentication)
 
 -DevPackages:
 Nodemon

@@ -13,13 +13,9 @@ const Router = express.Router();
 */
 Router.get("/", async (req, res) => {
     try {
-        const { email, }
-        const restuarants = await RestaurantModel.find({ city });
-        if (restuarants.length === 0)
-            return res
-                .status(404)
-                .json({ error: `No Restaurants found in ${category}` })
-        return res.json({ restuarants });
+        const { email, fullname, phone, address } =
+            req.user;
+        return res.json({ user: { email, fullname, phone, address } });
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }
