@@ -29,21 +29,17 @@ UserSchema.statics.findByEmailAndPhone = async ({ email, phone }) => {
     }
 };
 
-UserSchema.statics.findByEmailAndPassword = async ({ email, passwords }) => {
+UserSchema.statics.findByEmailAndPassword = async ({ email, password }) => {
     const user = await UserModel.findOne({ email });
     if (!user) throw new Error("User does not exist...");
-
     const doesPasswordMatch = await bcrypt.compare(password, user.password);
-
     if (!doesPasswordMatch) throw new Error("Wrong ceredentials...");
     return user;
 };
-
 UserSchema.pre('save', function (next) {
     const user = this;
     //password is encrypted here
     if (!user.isModified('password')) return next();
-
     //generate bcrypt salt
     bcrypt.genSalt(8, (error, salt) => {
         if (error) return next(error);
