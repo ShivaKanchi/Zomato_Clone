@@ -45,7 +45,7 @@ UserSchema.pre('save', function (next) {
     if (!user.isModified('password')) return next();
 
     //generate bcrypt salt
-    bycrypt.genSalt(8, (error, salt) => {
+    bcrypt.genSalt(8, (error, salt) => {
         if (error) return next(error);
         bcrypt.hash(user.password, salt, (error, hash) => {
             if (error) return next(arrow);
