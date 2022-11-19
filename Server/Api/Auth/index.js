@@ -9,7 +9,6 @@ Router.post("/register", async (req, res) => {
 
     try {
         await UserModel.findByEmailAndPhone(req.body.credetials);
-
         const newUser = await UserModel.create(req.body.credetials);
         const token = newUser.generateJwtToken();
         return res.status(200).json({ token, status: "success" });
@@ -18,7 +17,7 @@ Router.post("/register", async (req, res) => {
         return res.status(500).json({ error: error.message });
     }
 })
-Router.post("/loginin", async (req, res) => {
+Router.post("/login", async (req, res) => {
 
 })
 

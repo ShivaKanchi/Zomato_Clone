@@ -18,7 +18,7 @@ zomato.get("/", (req, res) => {
     });
 });
 
-//auth/signup
+//auth/register
 zomato.use("/auth", Auth);
 
 zomato.listen(4000, () => {
