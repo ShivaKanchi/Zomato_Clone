@@ -7,6 +7,8 @@ A basic Food Delivery Website
 Express
 Dotenv
 Mongoose
+bcrypt
+JsonWebToken
 
 -DevPackages:
 Nodemon
