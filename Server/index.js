@@ -8,20 +8,18 @@ import dotenv from 'dotenv';
 dotenv.config();
 //DB Connection
 import dbconnection from './database/dbconnection';
-
 //Route
 import Auth from './Api/Auth'
 import Food from './Api/Food'
 import User from './Api/User'
 import Restaurant from './Api/Restaurant'
 
-const zomato = express(); //like app    
-
 //private route authorization additional config
 privateRouteConfig(passport);
+const zomato = express(); //like app  
 
 zomato.use(express.json());
-zomato.use(session({ secret: "ZomatoApp" }));
+zomato.use(session({ secret: process.env.JWTSECRET }));
 zomato.use(passport.initialize());
 zomato.use(passport.session());
 
@@ -30,7 +28,6 @@ zomato.get("/", (req, res) => {
         message: "Server is up"
     });
 });
-
 //auth/register
 zomato.use("/auth", Auth);
 zomato.use("/food", Food);

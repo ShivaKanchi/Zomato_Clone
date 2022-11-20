@@ -9,40 +9,17 @@ const Router = express.Router();
 *Desc     Get Restaurant by city
 *Params   none
 *Method   GET
-*Access   Public
+*Access   Private
 */
 Router.get("/", async (req, res) => {
     try {
-        const { email, fullname, phone, address } =
-            req.user;
+        const { email, fullname, phone, address } = req.user;
+
         return res.json({ user: { email, fullname, phone, address } });
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }
 });
-
-/*
-*Route    /:_id
-*Desc     Get Restaurant by id
-*Params   _id
-*Method   GET
-*Access   Public
-*/
-Router.get("/:_id", async (req, res) => {
-    try {
-        //https://localhost:4000/restuarant/?city=mumbai
-        const { _id } = req.params;
-        const restuarant = await RestaurantModel.findById({ _id });
-        if (!restuarant)
-            return res
-                .status(404)
-                .json({ error: `No Restaurants found with id ${_id}` })
-        return res.json({ restuarant });
-    } catch (error) {
-        return res.status(500).json({ error: error.message });
-    }
-});
-
 
 /*
 *Route    /search/:searchstring
@@ -63,6 +40,51 @@ Router.get("/search/:searchstring", async (req, res) => {
                 .status(404)
                 .json({ error: `No Restaurants found with name ${searchstring}` })
         return res.json({ restuarants });
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+});
+
+
+/*
+*Route    /:_id
+*Desc     Get User data (For Review)
+*Params   _id
+*Method   GET
+*Access   Public
+*/
+Router.get("/:_id", async (req, res) => {
+    try {
+        const { _id } = req.params;
+        const getUser = await UserModel.findById(_id);
+
+        if (!getUser) {
+            return res.status(500).json({ error: "User Not Found " });
+        }
+        const { fullname } = getUser;
+        return res.json({ user: { fullname } });
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+});
+
+/*
+*Route    /:_id
+*Desc     Update User data (For Review)
+*Params   _id
+*Method   PUT
+*Access   Public
+*/
+Router.get("/update/:_id", passport.authenticate("jwt", { session: false }), async (req, res) => {
+    try {
+        const { _id } = req.params;
+        const { userData } = req.body;
+        const updateUserData = await UserModel.findByIdAndUpdate(_id, {
+            $set: userData,
+        }, {
+            new: true
+        });
+        return res.json({ user: updateUserData });
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }

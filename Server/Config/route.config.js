@@ -1,8 +1,8 @@
-import Jwtpassport from 'passport-jwt';
+import JwtPassport from 'passport-jwt';
 import { UserModel } from '../database/allModels';
 
-const JWTStrategy = Jwtpassport.Strategy;
-const ExtractJwt = Jwtpassport.ExtractJwt;
+const JWTStrategy = JwtPassport.Strategy;
+const ExtractJwt = JwtPassport.ExtractJwt;
 
 const options = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
