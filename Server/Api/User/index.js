@@ -11,7 +11,7 @@ const Router = express.Router();
 *Method   GET
 *Access   Private
 */
-Router.get("/", async (req, res) => {
+Router.get("/", passport.authenticate("jwt", { session: false }), async (req, res) => {
     try {
         const { email, fullname, phone, address } = req.user;
 
@@ -56,13 +56,13 @@ Router.get("/search/:searchstring", async (req, res) => {
 Router.get("/:_id", async (req, res) => {
     try {
         const { _id } = req.params;
-        const getUser = await UserModel.findById(_id);
+        const User = await UserModel.findById(_id);
 
-        if (!getUser) {
+        if (!User) {
             return res.status(500).json({ error: "User Not Found " });
         }
-        const { fullname } = getUser;
-        return res.json({ user: { fullname } });
+        const { fullname } = User;
+        return res.json({ User });
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }
@@ -75,10 +75,11 @@ Router.get("/:_id", async (req, res) => {
 *Method   PUT
 *Access   Public
 */
-Router.get("/update/:_id", passport.authenticate("jwt", { session: false }), async (req, res) => {
+Router.put("/update/:_id", passport.authenticate("jwt", { session: false }), async (req, res) => {
     try {
         const { _id } = req.params;
         const { userData } = req.body;
+        userData.password = undefined;
         const updateUserData = await UserModel.findByIdAndUpdate(_id, {
             $set: userData,
         }, {

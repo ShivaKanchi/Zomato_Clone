@@ -32,7 +32,7 @@ zomato.get("/", (req, res) => {
 zomato.use("/auth", Auth);
 zomato.use("/food", Food);
 zomato.use("/restaurant", Restaurant);
-zomato.use("/user", passport.authenticate("jwt", { session: false }), User);
+zomato.use("/user", User);
 
 zomato.listen(4000, () => {
     console.log("Server is up"); //port 4000

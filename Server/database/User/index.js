@@ -15,29 +15,32 @@ const UserSchema = new mongoose.Schema({
 //attachments of model
 //signing a token /creating
 UserSchema.methods.generateJwtToken = function () {
-    return jwt.sign({ user: this._id.toString() }, "ZomatoApp");
+    return jwt.sign({ user: this._id.toString() }, "ZomatoClone");
 };
 
 //helper functions
 //to check if this data exists or not
+
+//email and phone check
 UserSchema.statics.findByEmailAndPhone = async ({ email, phone }) => {
     const checkUserByEmail = await UserModel.findOne({ email });
     const checkUserByPhone = await UserModel.findOne({ phone });
-
     if (checkUserByEmail || checkUserByPhone) {
         throw new Error("User already existed with this fields...");
     }
     return false;
 };
 
+//email and password check
 UserSchema.statics.findByEmailAndPassword = async ({ email, password }) => {
-
     const user = await UserModel.findOne({ email });
     if (!user) throw new Error("User does not exist...");
     const doesPasswordMatch = await bcrypt.compare(password, user.password);
     if (!doesPasswordMatch) throw new Error("Wrong ceredentials...");
     return user;
 };
+
+//hasing password
 UserSchema.pre('save', function (next) {
     const user = this;
     //password is encrypted here
