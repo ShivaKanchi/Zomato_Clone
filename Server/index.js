@@ -1,5 +1,5 @@
 import express from 'express';
-import passport, { session } from 'passport';
+import passport from 'passport';
 import session from "express-session";
 //private route authorization config
 import privateRouteConfig from "./Config/route.config";
@@ -24,6 +24,7 @@ zomato.use(express.json());
 zomato.use(session({ secret: "ZomatoApp" }));
 zomato.use(passport.initialize());
 zomato.use(passport.session());
+
 zomato.get("/", (req, res) => {
     res.json({
         message: "Server is up"
