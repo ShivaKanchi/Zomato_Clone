@@ -13,6 +13,9 @@ import Auth from './Api/Auth'
 import Food from './Api/Food'
 import User from './Api/User'
 import Menu from './Api/Menu'
+import Image from './Api/Image'
+import Review from './Api/Review'
+import Order from './Api/Order'
 import Restaurant from './Api/Restaurant'
 
 //private route authorization additional config
@@ -35,6 +38,9 @@ zomato.use("/food", Food);
 zomato.use("/restaurant", Restaurant);
 zomato.use("/user", User);
 zomato.use("/menu", Menu);
+zomato.use("/image", Image);
+zomato.use("/order", Order);
+zomato.use("/review", Review);
 
 zomato.listen(4000, () => {
     console.log("Server is up"); //port 4000

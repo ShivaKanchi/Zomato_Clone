@@ -6,8 +6,8 @@ const Router = express.Router();
 
 /*
 *Route    /
-*Desc     Get Restaurant by city
-*Params   none
+*Desc     Get User details authorized
+*Params   token
 *Method   GET
 *Access   Private
 */

@@ -4,6 +4,28 @@ import { MenuModel } from "../../database/allModels";
 
 const Router = express.Router();
 
+
+/*
+*Route    /create
+*Desc     create a Order
+*Params   none
+*Method   POST
+*Access   Public
+*/
+Router.post("/create", async (req, res) => {
+    try {
+        const { data } = req.body;
+        const newData = await MenuModel.create({
+            ...data
+        });
+        return res.status(201).json({
+            success: true,
+            Order: newData
+        }); } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+})
+
 /*
 *Route    /list
 *Desc     Get Menu by id
@@ -22,7 +44,7 @@ const menus =await MenuModel.findByid(_id)
 
 
 /*
-*Route    /list
+*Route    /image
 *Desc     Get Menu Images
 *Params   _id
 *Method   GET
