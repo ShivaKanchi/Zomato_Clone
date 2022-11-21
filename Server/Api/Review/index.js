@@ -24,6 +24,30 @@ Router.get("/:resid", async (req, res) => {
 })
 
 
+/*
+*Route    /
+*Desc     Get all orders by user id
+*Params   _id
+*Method   GET
+*Access   Private
+*/
+Router.post(
+    "/new",
+    passport.authenticate("jwt", { session: false }),
+    async (req, res) => {
+        try {
+            const { _id } = req.user;
+            const { reviewData } = req.body;
+
+            const review = await ReviewModel.create({ ...reviewData, user: _id });
+
+            return res.json({ review });
+        } catch (error) {
+            return res.status(500).json({ error: error.message });
+        }
+    }
+);
+
 
 
 
@@ -48,6 +72,37 @@ Router.post("/create", async (req, res) => {
         return res.status(500).json({ error: error.message });
     }
 })
+
+/**
+ * Route     /delete/:id
+ * Des       Delete a users review
+ * Params    _id
+ * Access    Private
+ * Method    Delete
+ */
+Router.delete(
+    "/delete/:id",
+    passport.authenticate("jwt", { session: false }),
+    async (req, res) => {
+        try {
+            const { user } = req;
+            const { id } = req.params;
+
+            const data = await ReviewModel.findOneAndDelete({
+                _id: id,
+                user: user._id,
+            });
+
+            if (!data) {
+                return res.json({ message: "Review didnt deleted" });
+            }
+
+            return res.json({ message: "Review was Deleted", data });
+        } catch (error) {
+            return res.status(500).json({ error: error.message });
+        }
+    }
+);
 
 export default Router;
 
