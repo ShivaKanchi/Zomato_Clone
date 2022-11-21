@@ -25,7 +25,6 @@ const Router = express.Router();
 //     }
 // })
 
-
 /*
 *Route    /
 *Desc     Get Restaurant by city
