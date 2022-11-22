@@ -9,10 +9,10 @@ Dotenv
 Mongoose
 bcrypt
 JsonWebToken
-Passport and Passport-jwt(Authorization of token and Authentication)
+Passport & Passport-jwt(Authorization of token and Authentication)
 joi npm(Validations for schema)
 aws-sdk(to work with aws acc)
-multer(to store imgs in ram while upload)
+multer(to store images in ram while upload)
 passport-google-oauth2 (for google authentication)
 
 -DevPackages:
@@ -29,3 +29,15 @@ Food(_id,Menu._id)
 Order(User._id)
 Review(_id,Restaurant._id)
 Image(RestaurantImg,MenuImg,FoodImg)
+
+
+#Client:
+
+-packages
+tailwind
+@headlessui/react
+axios (for backend connection)
+swiper 
+react-router-dom
+react-rating-stars-component
+leaflet & react-leaflet
