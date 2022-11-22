@@ -2,15 +2,54 @@ import express from "express";
 import AWS from "aws-sdk";
 import multer from "multer";
 import { ImageModel } from "../../database/allModels";
+import { s3Upload } from "../../Util/s3";
+const Router = express.Router();
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+
+/*
+*Route    /:_id
+*Desc     Get a Image
+*Params   _id
+*Method   GET
+*Access   Public
+*/
+Router.get("/:id", async (req, res) => {
+    try {
+        const image = await ImageModel.findById(req.params._id);
+
+        return res.json({ image });
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+})
+
+/*
+*Route    /:_id
+*Desc     Upload a Image to s3 bucket and save link to mongoDB
+*Params   _id
+*Method   POST
+*Access   Public
+*/
+Router.post("/", upload.single('file'), async (req, res) => {
+    try {
+        const file = req.file;
+        const bucketOptions = {
+            Bucket: "zomato_clone",
+            Key: file.originalname,
+            Body: file.buffer,
+            ContentType: file.mimetype,
+            ACL: "public-read"
+        }
+        const uploadImage = await s3Upload(bucketOptions);
+        return res.status(200).json({ uploadImage });
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+})
 
 
-
-
-
-
-
-
-// const Router = express.Router();
 // /*
 // *Route    /create
 // *Desc     create a Image
