@@ -12,7 +12,7 @@ export const s3Upload = (options) => {
     return new Promise((resolve, reject) =>
         s3Bucket.upload(options), (error, data) => {
             if (error) return reject(error);
-            return resolve(data)
+            return resolve(data);
         }
     )
 }

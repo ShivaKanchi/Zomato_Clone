@@ -43,12 +43,48 @@ Router.post("/", upload.single('file'), async (req, res) => {
             ACL: "public-read"
         }
         const uploadImage = await s3Upload(bucketOptions);
+        const dbUpload = await ImageModel.create({
+            images: [{
+                location: uploadImage.Location
+            }]
+        })
         return res.status(200).json({ uploadImage });
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }
 })
 
+
+
+
+// /*
+// *Route    /:_id
+// *Desc     Upload many Images to s3 bucket and save link to mongoDB
+// *Params   _id
+// *Method   POST
+// *Access   Public
+// */
+// Router.post("/", upload.array('file', 4), async (req, res) => {
+//     try {
+//         const file = req.files;
+//         const bucketOptions = {
+//             Bucket: "zomato_clone",
+//             Key: file.originalname,
+//             Body: file.buffer,
+//             ContentType: file.mimetype,
+//             ACL: "public-read"
+//         }
+//         const uploadImage = await s3Upload(bucketOptions);
+//         const dbUpload = await ImageModel.create({
+//             images: [{
+//                 location: uploadImage.Location
+//             }]
+//         })
+//         return res.status(200).json({ uploadImage });
+//     } catch (error) {
+//         return res.status(500).json({ error: error.message });
+//     }
+// })
 
 // /*
 // *Route    /create
