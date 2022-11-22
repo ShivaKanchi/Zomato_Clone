@@ -10,6 +10,7 @@ Mongoose
 bcrypt
 JsonWebToken
 Passport and Passport-jwt(Authorization of token and Authentication)
+joi npm(Validations for schema)
 
 -DevPackages:
 Nodemon
