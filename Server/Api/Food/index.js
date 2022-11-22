@@ -36,7 +36,11 @@ const Router = express.Router();
 Router.get("/:_id", async (req, res) => {
     try {
         const { _id } = req.params;
-        const food = FoodModel.findById(_id);
+        const food = await FoodModel.findById(_id);
+        if (!food)
+            return res
+                .status(404)
+                .json({ error: `No Food found` })
         return res.json({ food });
     } catch (error) {
         return res.status(500).json({ error: error.message });
@@ -53,9 +57,13 @@ Router.get("/:_id", async (req, res) => {
 Router.get("/r/:_id", async (req, res) => {
     try {
         const { _id } = req.params;
-        const foods = FoodModel.find({
+        const foods = await FoodModel.find({
             restaurant: _id
         });
+        if (foods.length === 0)
+            return res
+                .status(404)
+                .json({ error: `No Food found with in that restaurant` })
         return res.json({ foods });
     } catch (error) {
         return res.status(500).json({ error: error.message });
@@ -72,10 +80,10 @@ Router.get("/r/:_id", async (req, res) => {
 Router.get("/c/:category", async (req, res) => {
     try {
         const { category } = req.params;
-        const foods = FoodModel.find({
+        const foods = await FoodModel.find({
             category: { $regex: category, $options: "i" }
         });
-        if (!foods)
+        if (foods.length === 0)
             return res
                 .status(404)
                 .json({ error: `No Food Mactched with ${category}` })
