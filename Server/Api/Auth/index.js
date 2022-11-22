@@ -1,6 +1,7 @@
 import express from "express";
 
 import { UserModel } from "../../database/allModels";
+import { ValidateLogin, ValidateRegister } from "../../Validation/auth.Validation";
 
 
 const Router = express.Router();
@@ -15,6 +16,7 @@ const Router = express.Router();
 Router.post("/register", async (req, res) => {
 
     try {
+        await ValidateRegister(req.body.credentials);
         await UserModel.findByEmailAndPhone(req.body.credentials);
         const newUser = await UserModel.create(req.body.credentials);
         const token = newUser.generateJwtToken();
@@ -35,6 +37,7 @@ Router.post("/register", async (req, res) => {
 */
 Router.post("/login", async (req, res) => {
     try {
+        await ValidateLogin(req.body.credentials)
         const newUser = await UserModel.findByEmailAndPassword(req.body.credentials);
         const token = newUser.generateJwtToken();
         return res.status(200).json({ token, status: "success" });
