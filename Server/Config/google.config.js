@@ -13,7 +13,7 @@ export default (passport) => {
             },
             async (accessToken, refreshToken, profile, done) => {
                 const newUser = {
-                    fullName: profile.displayName,
+                    fullname: profile.displayName,
                     email: profile.emails[0].value,//primary email
                     profilePic: profile.photos[0].value,//profile pic
                 };
