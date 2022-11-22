@@ -18,7 +18,7 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<Navigate to="/delivery" />} />
-        <Route path='/:type' element={<HomePage />} />
+        <Route path='/:type' element={<Home />} />
         {/* <Route path='/restaurant/:id' element={<RedirectRestaurant />} /> */}
         <Route path='/google/:token' element={<GoogleAuth />} />
         <Route path="/restaurant/:id" element={<Restaurant />}>
