@@ -3,6 +3,7 @@ import passport from 'passport';
 import session from "express-session";
 //private route authorization config
 import privateRouteConfig from "./Config/route.config";
+import googleAuthConfig from './Config/google.config';
 //env
 import dotenv from 'dotenv';
 dotenv.config();
@@ -20,6 +21,7 @@ import Restaurant from './Api/Restaurant'
 
 //private route authorization additional config
 privateRouteConfig(passport);
+googleAuthConfig(passport);
 const zomato = express(); //like app  
 
 zomato.use(express.json());

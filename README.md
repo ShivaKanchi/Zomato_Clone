@@ -13,6 +13,7 @@ Passport and Passport-jwt(Authorization of token and Authentication)
 joi npm(Validations for schema)
 aws-sdk(to work with aws acc)
 multer(to store imgs in ram while upload)
+passport-google-oauth2 (for google authentication)
 
 -DevPackages:
 Nodemon
