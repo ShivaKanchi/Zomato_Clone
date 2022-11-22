@@ -1,9 +1,14 @@
 import React from 'react'
-
-const Checkout = ({ Component }) => ({ ...props }) => {
+import Navbar from '../Components/Navbar';
+const CheckoutLayout = ({ Component }) => ({ ...props }) => {
     return (
-        <div>Checkout</div>
+        <>
+            <Navbar />
+            <div className='container mx-auto px-4 lg:px-20'>
+                <Component {...props} />
+            </div>
+        </>
     )
 }
 
-export default Checkout
+export default CheckoutLayout

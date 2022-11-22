@@ -1,4 +1,5 @@
 import React from 'react'
+import CheckoutLayout from '../Layouts/Checkout.layout'
 
 const Checkout = () => {
     return (
@@ -6,4 +7,4 @@ const Checkout = () => {
     )
 }
 
-export default Checkout
+export default CheckoutLayout(Checkout)

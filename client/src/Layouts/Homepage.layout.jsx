@@ -1,9 +1,14 @@
 import React from 'react'
+import Navbar from '../Components/Navbar';
+// import FoodTab from '../Components/FoodTab';
 
-const Homepage = ({ Component }) => ({ ...props }) => {
-    return (
-        <div>Homepage</div>
-    )
+const HomeLayout = (Component) => ({ ...props }) => {
+    return <>
+        <Navbar />
+        {/* <FoodTab/> */}
+        <div className='container mx-auto px-4 lg:px-20'>
+            <Component {...props} />
+        </div>
+    </>
 }
-
-export default Homepage
+export default HomeLayout
