@@ -5,37 +5,43 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper";
 import PictureCarouselCard from '../PictureCarouselCard';
 
-const DiningCarousel = () => {
+const NightLifeCarousel = () => {
 
     const [dining] = useState([
         {
-            image: "https://b.zmtcdn.com/data/collections/019acf0c53e2ebf0e8658e471a20a2ab_1665210805.jpg",
-            title: "Bombay Cocktal Bar",
-            places: "9 Places",
-        },
-        {
-            image: "https://b.zmtcdn.com/data/collections/4872d7301e80d72fd18c4e1e43bf8789_1660738717.jpg",
-            title: "Pablo Mansion",
-            places: "9 Places",
-        },
-        {
-            image: "https://b.zmtcdn.com/data/collections/84317f74208f036be1936e32dc627d88_1660823494.jpg",
-            title: "Yeda Republic",
-            places: "9 Places",
-        },
-        {
-            image: "https://b.zmtcdn.com/data/collections/51979569f85f4579e15336825f446188_1660738438.jpg",
-            title: "Barrel Mansion",
-            places: "9 Places",
-        },
-        {
-            image: "https://b.zmtcdn.com/data/collections/d9eea3ef785def3a1d4e19c89bf19b11_1660816040.jpg",
-            title: "Raasta",
-            places: "9 Places",
-        },
-        {
-            image: "https://b.zmtcdn.com/data/collections/ef4da4077aae068ea1e4410eefb5aec5_1660735784.jpg",
+            image:
+                "https://b.zmtcdn.com/data/pictures/1/18983041/31109ef52f99ea794d705da5c706627a.jpg",
             title: "Buzzing Nightlife & Clubs",
+            places: "4 Places",
+        },
+        {
+            image:
+                "https://b.zmtcdn.com/data/pictures/0/303960/68e61bd2a5fe97adf587d30496d94cfe.png",
+            title: "Raasta",
+            places: "7 Places",
+        },
+        {
+            image:
+                "https://b.zmtcdn.com/data/pictures/5/19577475/a9150506655136673058d180c8167d9c.jpeg",
+            title: "Barrel Mansion",
+            places: "2 Places",
+        },
+        {
+            image:
+                "https://b.zmtcdn.com/data/pictures/1/19567911/f3e8a1376225dfd3cc32c605097973c0.jpg",
+            title: "Yeda Republic",
+            places: "4 Places",
+        },
+        {
+            image:
+                "https://b.zmtcdn.com/data/pictures/0/309850/4c2cce1c16a40f515a27ecc27075259e.jpg",
+            title: "Pablo Mansion",
+            places: "6 Places",
+        },
+        {
+            image:
+                "https://b.zmtcdn.com/data/pictures/2/312902/2e3a98229ef00de30a9c7ad867bc0d5a.png",
+            title: "Bombay Cocktal Bar",
             places: "9 Places",
         },
     ]);
@@ -77,4 +83,4 @@ const DiningCarousel = () => {
     )
 }
 
-export default DiningCarousel
+export default NightLifeCarousel
