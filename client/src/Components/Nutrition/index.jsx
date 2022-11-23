@@ -32,6 +32,12 @@ const Nutrition = () => {
                     bg="blue"
                     image="https://img.freepik.com/free-psd/collection-fitness-protein-powder-bags_23-2148657586.jpg?w=996&t=st=1665416816~exp=1665417416~hmac=9e6116551070010a0354905ae6400ab171c1bd0d6e01156f8319783330fa6049"
                 />
+                <NutritionCard
+                    bg="blue"
+                    image="https://img.freepik.com/free-vector/sport-nutrition-containers-sumbbells_1284-6583.jpg?w=740&t=st=1669220901~exp=1669221501~hmac=ad03efb8774a843105751f7a1e5028d48f37155c01910387a30033c34717a46d"
+                />
+
+
             </div>
         </div>
     )

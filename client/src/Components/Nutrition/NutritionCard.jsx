@@ -22,11 +22,11 @@ const NutritionCard = (props) => {
                                 count={5}
                                 size={16}
                                 isHalf={true}
-                                value={3}
+                                value={4}
                                 emptyIcon={<BsStar />}
                                 halfIcon={<BsStarHalf />}
                                 fullIcon={<BsStarFill />}
-                                edit={false}
+                            //   edit={false}
                             />
                             <span className="text-gray-400">15</span>
 
@@ -41,7 +41,7 @@ const NutritionCard = (props) => {
                         </div>
                     </div>
                     <h3 className="text-xl font-bold text-gray-500">
-                        Burn - Weight Balance
+                        BurnHell - Weight Balance
                     </h3>
                     <p className="text-sm font-light text-gray-600">
                         This is a description of the product. You can add what ever you want
