@@ -4,13 +4,13 @@ import { HiLocationMarker } from "react-icons/hi";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import { RiSearch2Line } from "react-icons/ri";
 
-const MobileNav = ({ user, isDropdownOpen, setIsDropdownOpen }) => {
+const SmallNavbar = ({ user, isDropdownOpen, setIsDropdownOpen }) => {
     return (
         <div className="flex w-full items-center justify-between lg:hidden">
             <div className="w-28">
                 <img
                     src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
-                    alt="logo"
+                    alt="ZomatoLogo"
                     className="w-full h-full"
                 />
             </div>
@@ -18,16 +18,16 @@ const MobileNav = ({ user, isDropdownOpen, setIsDropdownOpen }) => {
                 <button className="bg-zomato-400 text-white py-2 px-3 rounded-full">
                     Use App
                 </button>
-                {user?.fullName ? (
+                {user?.fullname ? (
                     <>
                         <div
                             onClick={() => setIsDropdownOpen((prev) => !prev)}
-                            className="border border-gray-300 text-zomato-400 w-9 h-9 rounded-full"
+                            className="border border-gray-300 text-zomato-400 w-9 h-9 rounded-full cursor-pointer"
                         >
                             <img
-                                src="https://cdn3.vectorstock.com/i/1000x1000/00/92/teen-boy-character-avatar-vector-11360092.jpg"
-                                alt="avatar"
-                                className="w-full h-full rounded-full object-cover"
+                                src="https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?b=1&s=170667a&w=0&k=20&c=-qQGlKM8OQsSJCEkHnqS9FI94VRTkZ-7tg0K0u02XL0="
+                                alt="Avatar"
+                                className="w-full h-full rounded-full  object-fill"
                             />
                         </div>
                         {isDropdownOpen && (
@@ -58,7 +58,7 @@ const MobileNav = ({ user, isDropdownOpen, setIsDropdownOpen }) => {
     );
 };
 
-const LargeNav = ({ user, isDropdownOpen, setIsDropdownOpen }) => {
+const LargeNavbar = ({ user, isDropdownOpen, setIsDropdownOpen }) => {
     return (
         <div className="w-full items-center justify-between hidden lg:flex px-14">
             <div className="gap-4  items-center justify-around flex">
@@ -77,7 +77,7 @@ const LargeNav = ({ user, isDropdownOpen, setIsDropdownOpen }) => {
                     </span>
                     <input
                         type="text"
-                        placeholder="Delhi NCR"
+                        placeholder="Mumbai"
                         className="w-full focus:outline-none"
                     />
                     <IoMdArrowDropdown />
@@ -93,16 +93,16 @@ const LargeNav = ({ user, isDropdownOpen, setIsDropdownOpen }) => {
                 </div>
             </div>
             <div className="flex items-center gap-3 relative">
-                {user?.fullName ? (
+                {user?.fullname ? (
                     <>
                         <div
                             onClick={() => setIsDropdownOpen((prev) => !prev)}
-                            className="border border-gray-300 text-zomato-400 w-9 h-9 rounded-full"
+                            className="border border-gray-300 text-zomato-400 w-9 h-9 rounded-full cursor-pointer"
                         >
                             <img
-                                src="https://cdn3.vectorstock.com/i/1000x1000/00/92/teen-boy-character-avatar-vector-11360092.jpg"
+                                src="https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?b=1&s=170667a&w=0&k=20&c=-qQGlKM8OQsSJCEkHnqS9FI94VRTkZ-7tg0K0u02XL0="
                                 alt="avatar"
-                                className="w-full h-full rounded-full object-cover"
+                                className="w-full h-full rounded-full object-fill"
                             />
                         </div>
                         {isDropdownOpen && (
@@ -137,19 +137,19 @@ const Navbar = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const user = {
-        fullName: "Shiva",
+        fullname: "Shiva",
     };
 
     return (
         <>
             <nav className="p-4 lg:py-2 flex bg-white shadow-md lg:shadow-none lg:border-b-2 border-gray-100 w-full items-center">
-                <MobileNav
+                <SmallNavbar
                     user={user}
                     setIsDropdownOpen={setIsDropdownOpen}
                     isDropdownOpen={isDropdownOpen}
                 />
 
-                <LargeNav
+                <LargeNavbar
                     user={user}
                     setIsDropdownOpen={setIsDropdownOpen}
                     isDropdownOpen={isDropdownOpen}
