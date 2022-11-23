@@ -3,16 +3,16 @@ import React from 'react'
 const DeliverySmCard = ({ image, title }) => {
     return (
         <>
-            <div className='lg:hidden bg-white shadow rounded-md w-24 md:w-56'>
-                <div className='w-full h-24'>
+            <div className='lg:hidden rounded-md w-full'>
+                <div className='w-full h-26'>
                     <img
-                        className='w-full h-full object-cover object-center rounded-t-md'
+                        className='w-full h-full object-center rounded-full'
                         src={image}
                         alt={title}
                     />
                 </div>
                 <div>
-                    <h3 className='text-sm my-1 text-center fomt-light'></h3>
+                    <h3 className='text-sm my-1 text-center fomt-light'>{title}</h3>
                 </div>
             </div>
         </>
@@ -21,7 +21,18 @@ const DeliverySmCard = ({ image, title }) => {
 const DeliveryLgCard = ({ image, title }) => {
     return (
         <>
-
+            <div className="hidden lg:block rounded-md w-full">
+                <div className="w-full h-26">
+                    <img
+                        className="w-full h-full object-center  rounded-full"
+                        src={image}
+                        alt={title}
+                    />
+                </div>
+                <div>
+                    <h3 className="text-sm my-1 text-center font-light">{title}</h3>
+                </div>
+            </div>
         </>
     )
 };

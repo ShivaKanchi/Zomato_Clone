@@ -1,5 +1,7 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import "swiper/css"
+import { Navigation } from "swiper";
 import DeliveryCategoryCard from './DeliveryCategoryCard'
 
 const DeliveryCarousel = () => {
@@ -17,7 +19,7 @@ const DeliveryCarousel = () => {
         {
             image:
                 "https://b.zmtcdn.com/data/dish_images/d19a31d42d5913ff129cafd7cec772f81639737697.png",
-            title: "Biryani",
+            title: "Chicken Biryani",
         },
         {
             image:
@@ -27,7 +29,7 @@ const DeliveryCarousel = () => {
         {
             image:
                 "https://b.zmtcdn.com/data/dish_images/ccb7dc2ba2b054419f805da7f05704471634886169.png",
-            title: "Burges",
+            title: "Burger",
         },
         {
             image:
@@ -37,7 +39,7 @@ const DeliveryCarousel = () => {
         {
             image:
                 "https://b.zmtcdn.com/data/dish_images/1437bc204cb5c892cb22d78b4347f4651634827140.png",
-            title: "Chaat",
+            title: "Pani Puri",
         },
         {
             image:

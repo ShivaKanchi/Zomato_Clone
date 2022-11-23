@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 //components
-// import DeliveryCarousel from './';
+import DeliveryCarousel from './DeliveryCarousel';
 // import 
 const Delivery = () => {
     const [restaurantlist, setRestaurantlist] = useState([]);
