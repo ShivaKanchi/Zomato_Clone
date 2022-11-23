@@ -25,7 +25,7 @@ const SmallNavbar = ({ user, isDropdownOpen, setIsDropdownOpen }) => {
                             className="border border-gray-300 text-zomato-400 w-9 h-9 rounded-full cursor-pointer"
                         >
                             <img
-                                src="https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?b=1&s=170667a&w=0&k=20&c=-qQGlKM8OQsSJCEkHnqS9FI94VRTkZ-7tg0K0u02XL0="
+                                src="https://cdn.icon-icons.com/icons2/2643/PNG/512/male_boy_person_people_avatar_icon_159358.png"
                                 alt="Avatar"
                                 className="w-full h-full rounded-full  object-fill"
                             />
@@ -100,7 +100,7 @@ const LargeNavbar = ({ user, isDropdownOpen, setIsDropdownOpen }) => {
                             className="border border-gray-300 text-zomato-400 w-9 h-9 rounded-full cursor-pointer"
                         >
                             <img
-                                src="https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?b=1&s=170667a&w=0&k=20&c=-qQGlKM8OQsSJCEkHnqS9FI94VRTkZ-7tg0K0u02XL0="
+                                src="https://cdn.icon-icons.com/icons2/2643/PNG/512/male_boy_person_people_avatar_icon_159358.png"
                                 alt="avatar"
                                 className="w-full h-full rounded-full object-fill"
                             />
@@ -137,7 +137,7 @@ const Navbar = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const user = {
-        fullname: "Shiva",
+        // fullname: "Shiva",
     };
 
     return (
