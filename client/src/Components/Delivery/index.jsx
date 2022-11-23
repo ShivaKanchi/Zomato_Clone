@@ -7,7 +7,7 @@ import DeliveryCarousel from './DeliveryCarousel';
 const Delivery = () => {
     const [restaurantlist, setRestaurantlist] = useState([
         {
-            _id: "124ksjf435245jv34fg3",
+            _id: "123",
             isPro: true,
             isOff: true,
             name: "Nathu's Sweets",
@@ -24,7 +24,7 @@ const Delivery = () => {
             averageCost: "450",
         },
         {
-            _id: "sdffdsadadsfadfadsfadsf",
+            _id: "1234",
             isPro: true,
             isOff: false,
             name: "Master Koii's",
@@ -33,7 +33,7 @@ const Delivery = () => {
             averageCost: "600",
         },
         {
-            _id: "124ksjf435245jfdfv34fg3",
+            _id: "12345",
             isPro: true,
             isOff: true,
             name: "Nathu's Sweets",
