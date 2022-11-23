@@ -90,7 +90,7 @@ const LargeTabs = () => {
             name: "Night life",
         },
         {
-            id: `nutri`,
+            id: `nutrition`,
             imageDefault:
                 "https://b.zmtcdn.com/data/o2_assets/54cad8274d3c3ec7129e0808a13b27c31616582882.png",
             imageActive:
