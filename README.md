@@ -41,3 +41,4 @@ swiper
 react-router-dom
 react-rating-stars-component
 leaflet & react-leaflet
+classnames(for condtional statements)

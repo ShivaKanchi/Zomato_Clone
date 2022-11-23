@@ -15,6 +15,7 @@ const SmallNavbar = ({ user, isDropdownOpen, setIsDropdownOpen }) => {
                 />
             </div>
             <div className="flex items-center gap-3 relative">
+
                 <button className="bg-zomato-400 text-white py-2 px-3 rounded-full">
                     Use App
                 </button>
