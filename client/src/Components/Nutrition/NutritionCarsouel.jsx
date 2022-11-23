@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import NutritionCarouselCard from "./NutritionCarouselCard";
+import NutritionCarouselCard from "./NutritionCarsouelCard";
 
 const NutritionCarsouel = () => {
     const [categories, setCategories] = useState([

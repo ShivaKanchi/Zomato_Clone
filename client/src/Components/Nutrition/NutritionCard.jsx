@@ -2,7 +2,7 @@ import React from 'react'
 import ReactStars from "react-rating-stars-component";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 
-const NutritionCard = () => {
+const NutritionCard = (props) => {
     return (
         <div className="w-full p-4 md:w-1/2 lg:w-1/3">
             <div className="w-full h-full bg-white rounded-2xl drop-shadow-md">
@@ -16,27 +16,31 @@ const NutritionCard = () => {
                     />
                 </div>
                 <div className="p-3 flex flex-col gap-2">
-                    <div className="flex mt-2 items-center gap-3">
-                        <div className="w-4 h-4">
+                    <div className="flex mt-2 items-center gap-3 justify-between">
+                        <div className='flex flex-row gap-1'>
+                            <ReactStars
+                                count={5}
+                                size={16}
+                                isHalf={true}
+                                value={3}
+                                emptyIcon={<BsStar />}
+                                halfIcon={<BsStarHalf />}
+                                fullIcon={<BsStarFill />}
+                                edit={false}
+                            />
+                            <span className="text-gray-400">15</span>
+
+                        </div>
+                        <div className="w-4 h-4 mr-2">
                             <img
                                 src="https://i.pinimg.com/736x/e4/1f/f3/e41ff3b10a26b097602560180fb91a62.jpg"
                                 alt=""
                                 className="w-full h-full"
                             />
+
                         </div>
-                        <ReactStars
-                            count={5}
-                            size={16}
-                            isHalf={true}
-                            value={3}
-                            emptyIcon={<BsStar />}
-                            halfIcon={<BsStarHalf />}
-                            fullIcon={<BsStarFill />}
-                            edit={false}
-                        />
-                        <span className="text-gray-400">15</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-400">
+                    <h3 className="text-xl font-bold text-gray-500">
                         Burn - Weight Balance
                     </h3>
                     <p className="text-sm font-light text-gray-600">
