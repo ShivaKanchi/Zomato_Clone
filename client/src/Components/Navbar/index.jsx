@@ -135,20 +135,19 @@ const LargeNavbar = ({ user, isDropdownOpen, setIsDropdownOpen }) => {
 
 const Navbar = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
     const user = {
-        // fullname: "Shiva",
+        fullname: "Shiva",
     };
-
     return (
         <>
             <nav className="p-4 lg:py-2 flex bg-white shadow-md lg:shadow-none lg:border-b-2 border-gray-100 w-full items-center">
+                {/* for mobiles */}
                 <SmallNavbar
                     user={user}
                     setIsDropdownOpen={setIsDropdownOpen}
                     isDropdownOpen={isDropdownOpen}
                 />
-
+                {/* for large screens */}
                 <LargeNavbar
                     user={user}
                     setIsDropdownOpen={setIsDropdownOpen}
