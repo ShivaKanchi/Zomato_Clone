@@ -12,6 +12,7 @@ import OrderOnline from './Components/Restaurant/OrderOnline.component';
 import Reviews from './Components/Restaurant/Reviews.component';
 import Photos from './Components/Restaurant/Photos.component';
 import Menu from './Components/Restaurant/Menu.component';
+import RestaurantLayout from './Layouts/Restaurant.layout';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
         <Route path='/:type' element={<Home />} />
         <Route path='/google/:token' element={<GoogleAuth />} />
 
-        <Route path="/restaurant/:id" element={<Restaurant />}>
+        <Route path="/restaurant/:id" element={<RestaurantLayout><Restaurant /></RestaurantLayout>}>
           <Route path="menu" element={<Menu />} />
           <Route path="photos" element={<Photos />} />
           <Route path="order-online" element={<OrderOnline />} />

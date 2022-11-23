@@ -1,6 +1,5 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import RestaurantLayout from '../Layouts/Restaurant.layout';
 
 const Restaurant = () => {
     return (<>
@@ -10,4 +9,4 @@ const Restaurant = () => {
     )
 }
 
-export default RestaurantLayout(Restaurant);
+export default Restaurant;
