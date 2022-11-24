@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { TiStarFullOutline } from 'react-icons/ti'
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-
 dayjs.extend(relativeTime);
 
 const ReviewCard = (props) => {
@@ -32,9 +31,16 @@ const ReviewCard = (props) => {
             </div>
             <div className="flex flex-col gap-3">
                 <div className="flex items-center gap-3">
-                    <span className="text-white text-xs bg-green-700 gap-2 px-2 py-1 rounded-lg flex items-center">
-                        {props.rating} <TiStarFullOutline />
-                    </span>
+                    {props.rating <= 3.5 ? (
+                        <span className="text-white text-xs bg-red-700 gap-2 px-2 py-1 rounded-lg flex items-center">
+                            {props.rating} <TiStarFullOutline />
+                        </span>
+                    ) : (
+                        <span className="text-white text-xs bg-green-700 gap-2 px-2 py-1 rounded-lg flex items-center">
+                            {props.rating} <TiStarFullOutline />
+                        </span>
+                    )
+                    }
                     <h5 className="font-regular uppercase">
                         {props.isRestaurantReview ? "Dining" : "Delivery"}
                     </h5>

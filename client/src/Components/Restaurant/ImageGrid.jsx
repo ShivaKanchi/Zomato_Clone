@@ -58,7 +58,7 @@ const ImageGrid = (props) => {
                             <div className="bg-black p-3 rounded-full bg-opacity-50">
                                 <AiOutlineCamera className="text-white" />
                             </div>
-                            <h4>View Gallery</h4>
+                            <h4>Add Photos</h4>
                         </div>
                     </div>
                 </div>
