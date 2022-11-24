@@ -11,9 +11,9 @@ const ReviewCard = (props) => {
         <div className="my-3 flex flex-col gap-3 pb-4 border-b border-gray-300">
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 rounded-full">
+                    <div className="w-12 h-12 rounded-full">
                         <img
-                            src="https://cdn3.vectorstock.com/i/1000x1000/00/92/teen-boy-character-avatar-vector-11360092.jpg"
+                            src="https://cdn.icon-icons.com/icons2/2643/PNG/512/male_boy_person_people_avatar_icon_159358.png"
                             alt="avatar"
                             className="w-full h-full rounded-full object-cover"
                         />

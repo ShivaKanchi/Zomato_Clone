@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ImageViewer from "react-simple-image-viewer";
+import PhotoCollection from "./PhotoCollection";
 
 const MenuCollection = (props) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,6 +35,7 @@ const MenuCollection = (props) => {
                     <p>{props.pages}</p>
                 </div>
             </div>
+
         </>
     )
 }
