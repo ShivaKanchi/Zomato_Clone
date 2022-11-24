@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useParams } from "react-router-dom";
-import ReactStars from "react-rating-stars-component";
+// import ReactStars from "react-rating-stars-component";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
@@ -180,7 +180,7 @@ const Overview = () => {
             </div>
             <aside
                 style={{ height: "fit-content" }}
-                className="hidden md:flex md:w-4/12 sticky rounded-xl top-20 bg-white p-3 shadow-md flex-col gap-4"
+                className="hidden md:flex md:w-4/12 sticky rounded-xl top-20 bg-white p-3 shadow-md flex-col gap-4 "
             >
                 <MapView
                     title="McDonald's"

@@ -1,9 +1,10 @@
 import React from 'react'
-import Navbar from '../Components/Navbar';
-const CheckoutLayout = ({ Component }) => ({ ...props }) => {
+import CheckoutNavbar from '../Components/Navbar/CheckoutNavbar';
+
+const CheckoutLayout = (Component) => ({ ...props }) => {
     return (
         <>
-            <Navbar />
+            <CheckoutNavbar />
             <div className='container mx-auto px-4 lg:px-20'>
                 <Component {...props} />
             </div>

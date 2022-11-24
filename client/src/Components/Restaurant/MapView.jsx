@@ -6,7 +6,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 const Mapview = (props) => {
     return (
         <>
-            <div>
+            <div >
                 <h4 className="text-xl font-normal">Call</h4>
                 <h5 className="text-zomato-400 font-small">{props.phno}</h5>
             </div>
@@ -26,6 +26,7 @@ const Mapview = (props) => {
                         <TileLayer
                             attribution='<a href="https://www.openstreetmap.org/copyright">OSM</a>'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+
                         />
                         <Marker position={props.mapLocation}>
                             <Popup>{props.title}</Popup>
