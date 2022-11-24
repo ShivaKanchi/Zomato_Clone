@@ -58,12 +58,6 @@ const Signup = ({ isOpen, setIsOpen }) => {
                                         className="text-lg font-medium leading-6 text-gray-900"
                                     ></Dialog.Title>
                                     <div className="mt-2 flex flex-col gap-3 w-full">
-                                        <button
-                                            className="py-2 justify-center rounded-lg flex items-center gap-2 w-full border border-gray-400 bg-white text-gray-700 hover:bg-gray-100"
-                                            onClick={googleSignUp}
-                                        >
-                                            Sign Up With Google <FcGoogle />
-                                        </button>
 
                                         <form className="flex flex-col gap-2">
                                             <div className="w-full flex flex-col gap-2">
@@ -73,7 +67,7 @@ const Signup = ({ isOpen, setIsOpen }) => {
                                                     id="fullName"
                                                     value={userData.fullName}
                                                     onChange={handleChange}
-                                                    placeholder="John Doe"
+                                                    placeholder="Shiva Kanchi   "
                                                     className="w-full border border-gray-400 px-3 py-2 rounded-lg focus:border-zomato-400"
                                                     required
                                                 />
@@ -104,8 +98,16 @@ const Signup = ({ isOpen, setIsOpen }) => {
                                                 className="w-full text-center bg-zomato-400 text-white px-2 rounded-lg py-2 cursor-pointer"
                                                 onClick={submit}
                                             >
-                                                Sign In
+                                                Sign Up
                                             </div>
+                                            <h5 className="text-sm text-center">or</h5>
+                                            <button
+                                                className="py-2 justify-center rounded-lg flex items-center gap-2 w-full border border-gray-400 bg-white text-gray-700 hover:bg-gray-100"
+                                                onClick={googleSignUp}
+                                            >
+                                                Sign Up With Google <FcGoogle />
+                                            </button>
+
                                         </form>
                                     </div>
                                 </Dialog.Panel>
