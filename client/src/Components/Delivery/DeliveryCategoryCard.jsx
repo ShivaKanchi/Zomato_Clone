@@ -6,7 +6,7 @@ const DeliverySmCard = ({ image, title }) => {
             <div className='lg:hidden rounded-md w-full'>
                 <div className='w-full h-26'>
                     <img
-                        className='w-full h-full object-center rounded-full'
+                        className='w-full h-full object-center rounded-full cursor-pointer hover:scale-105'
                         src={image}
                         alt={title}
                     />
@@ -21,10 +21,10 @@ const DeliverySmCard = ({ image, title }) => {
 const DeliveryLgCard = ({ image, title }) => {
     return (
         <>
-            <div className="hidden lg:block rounded-md w-full">
+            <div className="hidden lg:block rounded-md w-full ">
                 <div className="w-full h-26">
                     <img
-                        className="w-full h-full object-center  rounded-full"
+                        className="w-full h-full object-center  rounded-full cursor-pointer hover:scale-105"
                         src={image}
                         alt={title}
                     />

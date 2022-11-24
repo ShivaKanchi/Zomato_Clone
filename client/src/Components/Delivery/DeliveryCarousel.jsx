@@ -84,7 +84,7 @@ const DeliveryCarousel = () => {
             <h1 className="text-xl mt-4 md:mt-8 md:text-3xl md:font-semibold mb-5">
                 Inspiration for yout first order
             </h1>
-            <div className="lg:hidden grid grid-cols-3 md:grid-cols-4 gap-3 justify-center">
+            <div className="lg:hidden grid grid-cols-3 md:grid-cols-4 gap-3 justify-center ">
                 {categories.map((food, index) => (
                     <DeliveryCategoryCard key={index} {...food} />
                 ))}
