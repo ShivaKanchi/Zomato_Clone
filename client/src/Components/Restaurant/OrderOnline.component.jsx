@@ -37,7 +37,7 @@ const Orderonline = () => {
                 description:
                     "Spiced chicken minced and toasted served with butter buns.",
             },
-        ],
+        ]
     },
     {
         name: "Soup",
@@ -54,7 +54,7 @@ const Orderonline = () => {
                 image:
                     "https://b.zmtcdn.com/data/dish_photos/c3c/7ed2652d58a67ce963704db111b44c3c.jpg",
                 name: "Chicken Manchow Soup",
-                rating: "4",
+                rating: 4,
                 price: "190",
                 description: "",
             },
@@ -62,7 +62,7 @@ const Orderonline = () => {
                 image:
                     "https://b.zmtcdn.com/data/dish_photos/03e/1834a3a8fb1d08bba554e6c35ee6d03e.jpg",
                 name: "Hot & Sour Soup",
-                rating: "3",
+                rating: 3,
                 price: "165",
                 description: "",
             },
@@ -77,18 +77,19 @@ const Orderonline = () => {
     };
     return (
         <>
-            <div className="w-full  flex">
-                <aside className="hidden md:flex flex-col gap-1 border-r overflow-y-scroll border-gray-200  w-1/4">
+            <div className="w-full flex items-start">
+                <aside className="sticky top-16 hidden md:flex flex-col gap-1 border-r overflow-y-scroll border-gray-200 w-1/4 h-screen">
                     {menu.map((item, index) => (
                         <MenuListContainer
                             {...item}
                             key={index}
                             onClickHandler={onClickHandler}
                             selected={selected}
+                            target={index}
                         />
                     ))}
                 </aside>
-                <div className="w-full px-3 md:w-3/4">
+                <div className="w-full px-3 md:w-3/4 sticky overflow-auto h-screen top-16">
                     <div className="pl-3 mb-4">
                         <h2 className="text-xl font-semibold">Order Online</h2>
                         <h4 className="flex items-center gap-2 font-light text-gray-500">
@@ -97,7 +98,7 @@ const Orderonline = () => {
                     </div>
                     <section className="flex  overflow-y-screen flex-col gap-3 md:gap-5">
                         {menu.map((item, index) => (
-                            <FoodList key={index} {...item} />
+                            <FoodList key={index} {...item} target={index} />
                         ))}
                     </section>
                 </div>

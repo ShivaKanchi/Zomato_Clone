@@ -3,7 +3,7 @@ import { HiMenu } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
 import MenuListContainer from "./MenuListContainer";
 
-const FloatMenuBtn = () => {
+const FloatMenuBtn = (props) => {
     const [isClicked, setIsClicked] = useState(false);
 
     const toggleMenu = () => setIsClicked((prev) => !prev);
