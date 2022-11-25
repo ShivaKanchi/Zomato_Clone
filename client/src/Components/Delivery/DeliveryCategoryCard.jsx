@@ -24,7 +24,7 @@ const DeliveryLgCard = ({ image, title }) => {
             <div className="hidden lg:block rounded-md w-full ">
                 <div className="w-full h-26">
                     <img
-                        className="w-full h-full object-center  rounded-full cursor-pointer hover:scale-105"
+                        className="w-full h-full object-center  rounded-full cursor-pointer     "
                         src={image}
                         alt={title}
                     />

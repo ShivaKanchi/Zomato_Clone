@@ -194,7 +194,6 @@ const Navbar = () => {
     //     // fullname: "Shiva",
     // };
     const user = useSelector((globalState) => globalState.user);
-    console.log(useSelector((globalState) => globalState.user))
     return (
         <>
             <SignIn isOpen={openSignIn} setIsOpen={setOpenSignIn} />
