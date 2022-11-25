@@ -44,3 +44,4 @@ leaflet & react-leaflet
 classnames(for condtional statements)
 react-simple-image-viewer
 dayjs
+redux-thunk

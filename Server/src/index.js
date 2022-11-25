@@ -1,6 +1,8 @@
 import express from 'express';
 import passport from 'passport';
 import session from "express-session";
+import cors from 'cors';
+import helmet from 'helmet';
 //private route authorization config
 import privateRouteConfig from "./Config/route.config";
 import googleAuthConfig from './Config/google.config';
@@ -24,6 +26,8 @@ privateRouteConfig(passport);
 googleAuthConfig(passport);
 const zomato = express(); //like app  
 
+zomato.use(cors());
+zomato.use(helmet());
 zomato.use(express.json());
 zomato.use(session({ secret: process.env.JWTSECRET }));
 zomato.use(passport.initialize());
