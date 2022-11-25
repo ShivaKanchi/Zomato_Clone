@@ -14,7 +14,18 @@ import Photos from './Components/Restaurant/Photos.component';
 import Menu from './Components/Restaurant/Menu.component';
 import RestaurantLayout from './Layouts/Restaurant.layout';
 
+// redux
+import { useDispatch } from "react-redux";
+import { getMySelf } from "./Redux/Reducers/user/user.action";
+import { useEffect } from 'react';
+
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMySelf());
+  }, [localStorage]);
+
   return (
     <>
       <Routes>

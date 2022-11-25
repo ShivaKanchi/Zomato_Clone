@@ -10,7 +10,9 @@ export const signIn = (userData) => async (dispatch) => {
             data: { credentials: userData }
         });
         localStorage.setItem("zomatoUser", JSON.stringify({ token: User.data.token }));
-        // window.location.reload();
+        axios.defaults.headers.common["Authorization"] = `Bearer ${User.data.token}`;
+
+        //  window.location.reload();
         return dispatch({ type: SIGN_IN, payload: userData });
     } catch (error) {
         return dispatch({ type: "ERROR", payload: error });
@@ -26,7 +28,9 @@ export const signUp = (userData) => async (dispatch) => {
             data: { credentials: userData }
         });
         localStorage.setItem("zomatoUser", JSON.stringify({ token: User.data.token }));
-        //  window.location.reload();
+        axios.defaults.headers.common["Authorization"] = `Bearer ${User.data.token}`;
+
+        //window.location.reload();
         return dispatch({ type: SIGN_UP, payload: userData });
     } catch (error) {
         return dispatch({ type: "ERROR", payload: error });

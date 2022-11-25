@@ -44,4 +44,7 @@ leaflet & react-leaflet
 classnames(for condtional statements)
 react-simple-image-viewer
 dayjs
+react
 redux-thunk
+redux-logger(to view req and res in log)
+redux-react

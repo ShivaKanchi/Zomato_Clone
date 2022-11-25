@@ -20,16 +20,17 @@ const Signup = ({ isOpen, setIsOpen }) => {
     const closeModal = () => {
         setIsOpen(false);
     };
+
     //redux dipatch
     const dispatch = useDispatch()
-    const submit = () => {
-        dispatch(signUp(userData));
+
+    const submit = async () => {
+        await dispatch(signUp(userData));
         closeModal();
         setUserData({ email: "", password: "", fullname: "" });
     };
 
-    const googleSignUp = () =>
-        (window.location.href = "http://localhost:4000/auth/google");
+    const googleSignUp = () => (window.location.href = "http://localhost:4000/auth/google");
 
     return (
         <>
@@ -66,6 +67,7 @@ const Signup = ({ isOpen, setIsOpen }) => {
                                     <div className="mt-2 flex flex-col gap-3 w-full">
 
                                         <form className="flex flex-col gap-2">
+
                                             <div className="w-full flex flex-col gap-2">
                                                 <label htmlFor="fullname">Full Name</label>
                                                 <input
@@ -78,6 +80,7 @@ const Signup = ({ isOpen, setIsOpen }) => {
                                                     required
                                                 />
                                             </div>
+
                                             <div className="w-full flex flex-col gap-2">
                                                 <label htmlFor="email">Email</label>
                                                 <input
@@ -89,6 +92,7 @@ const Signup = ({ isOpen, setIsOpen }) => {
                                                     className="w-full border border-gray-400 px-3 py-2 rounded-lg focus:border-zomato-400"
                                                 />
                                             </div>
+
                                             <div className="w-full flex flex-col gap-2">
                                                 <label htmlFor="email">Password</label>
                                                 <input
@@ -100,21 +104,24 @@ const Signup = ({ isOpen, setIsOpen }) => {
                                                     className="w-full border border-gray-400 px-3 py-2 rounded-lg focus:border-zomato-400"
                                                 />
                                             </div>
+
                                             <div
                                                 className="w-full text-center bg-zomato-400 text-white px-2 rounded-lg py-2 cursor-pointer"
                                                 onClick={submit}
                                             >
                                                 Sign Up
                                             </div>
-                                            <h5 className="text-sm text-center">or</h5>
-                                            <button
-                                                className="py-2 justify-center rounded-lg flex items-center gap-2 w-full border border-gray-400 bg-white text-gray-700 hover:bg-gray-100"
-                                                onClick={googleSignUp}
-                                            >
-                                                Sign Up With Google <FcGoogle />
-                                            </button>
-
                                         </form>
+                                        <h5 className="text-sm text-center">or</h5>
+
+                                        <button
+                                            className="py-2 justify-center rounded-lg flex items-center gap-2 w-full border border-gray-400 bg-white text-gray-700 hover:bg-gray-100"
+                                            onClick={googleSignUp}
+                                        >
+                                            Sign Up With Google <FcGoogle />
+                                        </button>
+
+
                                     </div>
                                 </Dialog.Panel>
                             </Transition.Child>

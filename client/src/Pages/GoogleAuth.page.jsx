@@ -7,11 +7,12 @@ const GoogleAuth = () => {
     const { token } = useParams();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     useEffect(() => {
         if (token) {
-            dispatch(googleAuth(token)).then(() => navigate("/delivery"));
+            dispatch(googleAuth(token)).then(() => navigate("/delivery/"));
         }
-    }, [token]);
+    }, []);
 
     return <div>Loading, Please Wait...</div>
 }
