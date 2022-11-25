@@ -6,10 +6,12 @@ import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import { RiSearch2Line } from "react-icons/ri";
 import SignIn from "../Auth/Signin";
 import SignUp from "../Auth/Signup";
+
 //redux import
 import { useSelector, useDispatch } from "react-redux";
 import { signOut } from "../../Redux/Reducers/auth/auth.action";
 import { clearUser } from "../../Redux/Reducers/user/user.action";
+
 //components
 const SmallNavbar = ({ user, isDropdownOpen, setIsDropdownOpen, signIn, signUp }) => {
     const SignIn = () => {
@@ -192,6 +194,7 @@ const Navbar = () => {
     //     // fullname: "Shiva",
     // };
     const user = useSelector((globalState) => globalState.user);
+    console.log(useSelector((globalState) => globalState))
     return (
         <>
             <SignIn isOpen={openSignIn} setIsOpen={setOpenSignIn} />

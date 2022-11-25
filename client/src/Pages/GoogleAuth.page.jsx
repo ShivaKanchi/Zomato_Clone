@@ -7,14 +7,12 @@ const GoogleAuth = () => {
     const { token } = useParams();
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
     useEffect(() => {
         if (token) {
-            dispatch(googleAuth(token)).then(() => navigate("/delivery/"));
+            dispatch(googleAuth(token)).then(() => navigate("/delivery"));
         }
     }, []);
-
-    return <div>Loading, Please Wait...</div>
+    return <img src="https://i.pinimg.com/originals/b0/70/1a/b0701aa6ae2a696e7caf2f4a57eef5e8.jpg" />
 }
 
 export default GoogleAuth

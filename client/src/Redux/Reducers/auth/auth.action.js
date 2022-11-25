@@ -11,7 +11,6 @@ export const signIn = (userData) => async (dispatch) => {
         });
         localStorage.setItem("zomatoUser", JSON.stringify({ token: User.data.token }));
         axios.defaults.headers.common["Authorization"] = `Bearer ${User.data.token}`;
-
         //  window.location.reload();
         return dispatch({ type: SIGN_IN, payload: userData });
     } catch (error) {
@@ -29,7 +28,6 @@ export const signUp = (userData) => async (dispatch) => {
         });
         localStorage.setItem("zomatoUser", JSON.stringify({ token: User.data.token }));
         axios.defaults.headers.common["Authorization"] = `Bearer ${User.data.token}`;
-
         //window.location.reload();
         return dispatch({ type: SIGN_UP, payload: userData });
     } catch (error) {
