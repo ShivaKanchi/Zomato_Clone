@@ -7,6 +7,7 @@ import axios from 'axios';
 
 import { Provider } from 'react-redux';
 import store from './Redux/store';
+
 if (localStorage.zomatoUser) {
   const { token } = JSON.parse(localStorage.zomatoUser);
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
