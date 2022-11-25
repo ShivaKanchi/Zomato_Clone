@@ -10,7 +10,7 @@ export const signIn = (userData) => async (dispatch) => {
             data: { credentials: userData }
         });
         localStorage.setItem("zomatoUser", JSON.stringify({ token: User.data.token }));
-        window.Location.reload();
+        window.location.reload();
         return dispatch({ type: SIGN_IN, payload: userData });
     } catch (error) {
         return dispatch({ type: "ERROR", payload: error });
