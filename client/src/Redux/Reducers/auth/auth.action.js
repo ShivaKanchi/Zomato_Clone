@@ -10,8 +10,24 @@ export const signIn = (userData) => async (dispatch) => {
             data: { credentials: userData }
         });
         localStorage.setItem("zomatoUser", JSON.stringify({ token: User.data.token }));
-        window.location.reload();
+        // window.location.reload();
         return dispatch({ type: SIGN_IN, payload: userData });
+    } catch (error) {
+        return dispatch({ type: "ERROR", payload: error });
+    }
+}
+
+
+export const signUp = (userData) => async (dispatch) => {
+    try {
+        const User = await axios({
+            method: "POSt",
+            url: "http://localhost:4000/auth/register",
+            data: { credentials: userData }
+        });
+        localStorage.setItem("zomatoUser", JSON.stringify({ token: User.data.token }));
+        //  window.location.reload();
+        return dispatch({ type: SIGN_UP, payload: userData });
     } catch (error) {
         return dispatch({ type: "ERROR", payload: error });
     }

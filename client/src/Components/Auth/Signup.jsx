@@ -1,12 +1,16 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+//redux call
+import { useDispatch } from "react-redux";
+import { signUp } from '../../Redux/Reducers/auth/auth.action'
 
 const Signup = ({ isOpen, setIsOpen }) => {
     const [userData, setUserData] = useState({
+
         email: "",
         password: "",
-        fullName: "",
+        fullname: "",
     });
 
     const handleChange = (e) => {
@@ -16,10 +20,12 @@ const Signup = ({ isOpen, setIsOpen }) => {
     const closeModal = () => {
         setIsOpen(false);
     };
-
+    //redux dipatch
+    const dispatch = useDispatch()
     const submit = () => {
+        dispatch(signUp(userData));
         closeModal();
-        setUserData({ email: "", password: "", fullName: "" });
+        setUserData({ email: "", password: "", fullname: "" });
     };
 
     const googleSignUp = () =>
@@ -61,11 +67,11 @@ const Signup = ({ isOpen, setIsOpen }) => {
 
                                         <form className="flex flex-col gap-2">
                                             <div className="w-full flex flex-col gap-2">
-                                                <label htmlFor="fullName">Full Name</label>
+                                                <label htmlFor="fullname">Full Name</label>
                                                 <input
                                                     type="text"
-                                                    id="fullName"
-                                                    value={userData.fullName}
+                                                    id="fullname"
+                                                    value={userData.fullname}
                                                     onChange={handleChange}
                                                     placeholder="Shiva Kanchi   "
                                                     className="w-full border border-gray-400 px-3 py-2 rounded-lg focus:border-zomato-400"
