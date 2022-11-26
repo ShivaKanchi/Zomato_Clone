@@ -17,8 +17,8 @@ import { useDispatch } from 'react-redux';
 
 const RestaurantLayout = ({ children: Component, ...props }) => {
     const [restaurant, setRestaurant] = useState({
-        images: [],
         name: "",
+        images: [],
         cuisine: [],
         address: "",
         restaurantRating: 4.1,
@@ -32,7 +32,7 @@ const RestaurantLayout = ({ children: Component, ...props }) => {
         dispatch(getSpecificRestaurant(id)).then((data) => {
             setRestaurant((prev) => ({
                 ...prev,
-                ...data.payload.restaurant,
+                ...data.payload,
             }));
             dispatch(getImage(data.payload.photos)).then((data) => {
                 setRestaurant((prev) => ({
@@ -42,6 +42,9 @@ const RestaurantLayout = ({ children: Component, ...props }) => {
             });
         });
     }, []);
+    useEffect(() => {
+
+    })
 
     return (
         <>

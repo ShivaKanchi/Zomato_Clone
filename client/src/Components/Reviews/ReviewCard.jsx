@@ -49,7 +49,7 @@ const ReviewCard = (props) => {
                     </small>
                 </div>
                 <div className="w-full">
-                    <p className="w-full text-gray-600 font-light text-base">
+                    <p className="w-full text-gray-600 text-base">
                         {props.reviewText}
                     </p>
                 </div>

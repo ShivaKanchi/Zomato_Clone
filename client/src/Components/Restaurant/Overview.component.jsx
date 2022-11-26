@@ -30,15 +30,16 @@ const Overview = () => {
     useEffect(() => {
         if (reduxState) {
             setRestaurant(reduxState);
+
         }
     }, [reduxState]);
 
     useEffect(() => {
         if (reduxState) {
-            dispatch(getImage(reduxState?.menuImages)).then((data) => {
+            dispatch(getImage(restaurant.menuImage)).then((data) => {
                 const images = [];
-                data.payload.images.map(({ location }) => images.push(location));
-                // console.log("seee", data.payload.images.map(({ location }) => images.push(location)))
+                data.payload.restaurant.images.map(({ location }) => images.push(location));
+                console.log("seee", images)
                 setMenuImages(images);
             });
 
@@ -46,7 +47,7 @@ const Overview = () => {
                 setReviews(data.payload.reviews);
             });
         }
-    }, []);
+    }, [reduxState]);
 
     const slideConfig = {
         slidesPerView: 1,

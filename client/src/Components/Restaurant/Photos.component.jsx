@@ -11,7 +11,7 @@ const Photos = (props) => {
         "https://b.zmtcdn.com/data/pictures/0/19555120/5a90905be6d0467990f545e06be73643.jpeg",
     ]);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [currentImage, setCurrentImage] = useState(0);
+    const [currentImage, setCurrentImage] = useState();
 
     const closeViewer = () => setIsMenuOpen(false);
     const openViewer = () => setIsMenuOpen(true);
