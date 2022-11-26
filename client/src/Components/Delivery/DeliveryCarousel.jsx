@@ -2,7 +2,7 @@ import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import "swiper/css"
 import "swiper/css/navigation";
-import { Navigation } from "swiper";
+import { Autoplay, Navigation } from "swiper";
 import DeliveryCategoryCard from './DeliveryCategoryCard'
 
 const DeliveryCarousel = () => {
@@ -55,8 +55,15 @@ const DeliveryCarousel = () => {
     ];
 
     const slideConfig = {
-        slidesPerView: 1,
+        // slidesPerView: 1,
         spaceBetween: 10,
+        loop: true,
+        centeredSlides: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        navigation: true,
         pagination: {
             clickable: true,
         },
@@ -74,7 +81,7 @@ const DeliveryCarousel = () => {
                 spaceBetween: 50,
             },
         },
-        modules: [Navigation],
+        modules: [Navigation, Autoplay, Navigation],
         className: "mySwiper",
         navigation: true,
     };

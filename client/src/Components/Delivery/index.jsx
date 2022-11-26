@@ -3,53 +3,16 @@ import RestaurantCard from '../RestaurantCard';
 
 //components
 import DeliveryCarousel from './DeliveryCarousel';
-// import 
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 const Delivery = () => {
-    const [restaurantlist, setRestaurantlist] = useState([
-        {
-            _id: "123",
-            isPro: true,
-            isOff: true,
-            name: "Nathu's Sweets",
-            restaurantReviewValue: "3.7",
-            cuisine: [
-                "Mithai",
-                "South Indian",
-                "Chinese",
-                "Street Food",
-                "Fast Food",
-                "Desserts",
-                "North Indian",
-            ],
-            averageCost: "450",
-        },
-        {
-            _id: "1234",
-            isPro: true,
-            isOff: false,
-            name: "Master Koii's",
-            restaurantReviewValue: "4.6",
-            cuisine: ["Asian", "Chinese", "Thai", "Malaysian", "Korean"],
-            averageCost: "600",
-        },
-        {
-            _id: "12345",
-            isPro: true,
-            isOff: true,
-            name: "Nathu's Sweets",
-            restaurantReviewValue: "3.7",
-            cuisine: [
-                "Mithai",
-                "South Indian",
-                "Chinese",
-                "Street Food",
-                "Fast Food",
-                "Desserts",
-                "North Indian",
-            ],
-            averageCost: "450",
-        },
-    ]);
+    const [restaurantlist, setRestaurantlist] = useState([]);
+
+    const reduxState = useSelector((globalState) => globalState.restaurant.restaurants)
+    console.log("okayy", useSelector((globalState) => globalState.restaurant))
+    useEffect(() => {
+        reduxState && setRestaurantlist(reduxState);
+    }, [reduxState])
     return (
         <>
 
@@ -67,3 +30,48 @@ const Delivery = () => {
 }
 
 export default Delivery
+
+
+// {
+//     _id: "123",
+//         isPro: true,
+//             isOff: true,
+//                 name: "Nathu's Sweets",
+//                     restaurantReviewValue: "3.7",
+//                         cuisine: [
+//                             "Mithai",
+//                             "South Indian",
+//                             "Chinese",
+//                             "Street Food",
+//                             "Fast Food",
+//                             "Desserts",
+//                             "North Indian",
+//                         ],
+//                             averageCost: "450",
+// },
+// {
+//     _id: "1234",
+//         isPro: true,
+//             isOff: false,
+//                 name: "Master Koii's",
+//                     restaurantReviewValue: "4.6",
+//                         cuisine: ["Asian", "Chinese", "Thai", "Malaysian", "Korean"],
+//                             averageCost: "600",
+// },
+// {
+//     _id: "12345",
+//         isPro: true,
+//             isOff: true,
+//                 name: "Nathu's Sweets",
+//                     restaurantReviewValue: "3.7",
+//                         cuisine: [
+//                             "Mithai",
+//                             "South Indian",
+//                             "Chinese",
+//                             "Street Food",
+//                             "Fast Food",
+//                             "Desserts",
+//                             "North Indian",
+//                         ],
+//                             averageCost: "450",
+// },

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaUserAlt } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
@@ -69,7 +69,7 @@ const SmallNavbar = ({ user, isDropdownOpen, setIsDropdownOpen, signIn, signUp }
                     <>
                         <span
                             onClick={() => setIsDropdownOpen((prev) => !prev)}
-                            className="border p-2 border-gray-400 rounded-full cursor-pointer"
+                            className="border p-2 border-gray-400 rounded-full w-12 h-12 cursor-pointer"
                         >
                             <FaUserAlt className="w-full h-full" />
                         </span>
@@ -163,7 +163,7 @@ const LargeNavbar = ({ user, isDropdownOpen, setIsDropdownOpen, signIn, signUp }
                     <>
                         <span
                             onClick={() => setIsDropdownOpen((prev) => !prev)}
-                            className="border p-2 border-gray-400 rounded-full cursor-pointer"
+                            className="border p-2 border-gray-400 rounded-full w-12 h-12 cursor-pointer"
                         >
                             <FaUserAlt className="w-full h-full " />
                         </span>
