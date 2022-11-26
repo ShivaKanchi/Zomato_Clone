@@ -22,13 +22,11 @@ const Overview = () => {
     const [restaurant, setRestaurant] = useState({ cuisine: [] });
     const [menuImages, setMenuImages] = useState([]);
     const [reviews, setReviews] = useState([]);
-
-    const reduxState = useSelector(
-        (globalState) => globalState.restaurant.selectedRestaurant.restaurant
-    );
-    // console.log("Overview restar", reduxState)
     const { id } = useParams;
     const dispatch = useDispatch();
+    const reduxState = useSelector(
+        (globalState) => globalState.restaurant.selectedRestaurant
+    );
     useEffect(() => {
         if (reduxState) {
             setRestaurant(reduxState);
@@ -39,8 +37,7 @@ const Overview = () => {
         if (reduxState) {
             dispatch(getImage(reduxState?.menuImages)).then((data) => {
                 const images = [];
-                //    data.payload.images.map(({ location }) => images.push(location));
-
+                data.payload.images.map(({ location }) => images.push(location));
                 // console.log("seee", data.payload.images.map(({ location }) => images.push(location)))
                 setMenuImages(images);
             });
@@ -49,7 +46,8 @@ const Overview = () => {
                 setReviews(data.payload.reviews);
             });
         }
-    }, [reduxState]);
+    }, []);
+
     const slideConfig = {
         slidesPerView: 1,
         spaceBetween: 10,

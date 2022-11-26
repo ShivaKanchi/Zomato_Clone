@@ -27,7 +27,7 @@ export const getSpecificRestaurant = (_id) => async (dispatch) => {
         // console.log("getspecificrestaurant", restaurantList.data)
         return dispatch({
             type: GET_SPECIFIC_RESTAURANT,
-            payload: restaurantList.data,
+            payload: restaurantList.data.restuarant,
         });
     } catch (error) {
         return dispatch({ type: "ERROR", payload: error });

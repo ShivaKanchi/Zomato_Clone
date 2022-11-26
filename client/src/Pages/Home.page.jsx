@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { useParams } from "react-router-dom";
-
 //components
 import Delivery from '../Components/Delivery';
 import Dining from '../Components/Dining';
