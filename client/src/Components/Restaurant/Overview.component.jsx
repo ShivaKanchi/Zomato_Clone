@@ -38,8 +38,7 @@ const Overview = () => {
         if (reduxState) {
             dispatch(getImage(restaurant.menuImage)).then((data) => {
                 const images = [];
-                data.payload.restaurant.images.map(({ location }) => images.push(location));
-                console.log("seee", images)
+                data.payload.images?.map(({ location }) => images.push(location));
                 setMenuImages(images);
             });
 
@@ -103,7 +102,7 @@ const Overview = () => {
 
                 <h4 className="text-lg font-medium my-4">Cuisines</h4>
                 <div className="flex flex-wrap gap-2">
-                    {restaurant?.cuisine.map((cuisineName, index) => (
+                    {restaurant.cuisine?.map((cuisineName, index) => (
                         <span
                             key={index}
                             className="border border-gray-600 text-blue-600 px-2 py-1 rounded-full"
