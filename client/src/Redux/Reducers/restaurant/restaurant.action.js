@@ -8,7 +8,7 @@ export const getRestaurant = () => async (dispatch) => {
             method: "GET",
             url: `http://localhost:4000/restaurant/?city=Mumbai`,
         });
-        //  console.log("niiii", restaurantList.data.restuarants);
+        //console.log("getRestaurant", restaurantList.data);
         return dispatch({
             type: GET_RESTAURANT,
             payload: restaurantList.data.restuarants,
@@ -24,10 +24,10 @@ export const getSpecificRestaurant = (_id) => async (dispatch) => {
             method: "GET",
             url: `http://localhost:4000/restaurant/${_id}`,
         });
-        // console.log("yo", restaurantList.data.restuarant)
+        // console.log("getspecificrestaurant", restaurantList.data)
         return dispatch({
             type: GET_SPECIFIC_RESTAURANT,
-            payload: restaurantList.data.restuarant,
+            payload: restaurantList.data,
         });
     } catch (error) {
         return dispatch({ type: "ERROR", payload: error });

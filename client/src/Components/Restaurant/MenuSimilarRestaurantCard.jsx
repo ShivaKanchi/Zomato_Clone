@@ -14,18 +14,38 @@ const MenuSimilarRestaurantCard = (props) => {
                 <div className="flex flex-col gap-2 p-3">
                     <h3 className="font-semibold text-lg">{props.title}</h3>
                     <div className="flex items-center justify-start text-sm gap-4">
-                        <span className="flex lg:flex-row items-center justify-between text-sm gap-2 md:text-sm md:flex-col">
-                            <span className="flex text-sm items-center gap-1 bg-green-700 text-white px-2 py-1 rounded">
-                                3.9 <TiStar />
+                        {props.ratingDining <= 3.5 ? (
+                            <span className="flex lg:flex-row items-center justify-between text-sm gap-2 md:text-sm md:flex-col">
+                                <span className="flex text-sm items-center gap-1 bg-red-700 text-white px-2 py-1 rounded">
+                                    {props.ratingDining} <TiStar />
+                                </span>
+                                Dining
                             </span>
-                            Dining
-                        </span>
-                        <span className="flex lg:flex-row items-center justify-between text-sm gap-2 md:text-sm md:flex-col">
-                            <span className="flex text-sm items-center gap-1 bg-green-700 text-white px-2 py-1 rounded">
-                                4.5 <TiStar />
+                        ) : (
+                            <span className="flex lg:flex-row items-center justify-between text-sm gap-2 md:text-sm md:flex-col">
+                                <span className="flex text-sm items-center gap-1 bg-green-700 text-white px-2 py-1 rounded">
+                                    {props.ratingDining} <TiStar />
+                                </span>
+                                Dining
                             </span>
-                            Delivery
-                        </span>
+                        )
+                        }
+                        {props.ratingDelivery <= 3.5 ? (
+                            <span className="flex lg:flex-row items-center justify-between text-sm gap-2 md:text-sm md:flex-col">
+                                <span className="flex text-sm items-center gap-1 bg-red-700 text-white px-2 py-1 rounded">
+                                    {props.ratingDelivery} <TiStar />
+                                </span>
+                                Delivery
+                            </span>
+                        ) : (
+                            <span className="flex lg:flex-row items-center justify-between text-sm gap-2 md:text-sm md:flex-col">
+                                <span className="flex text-sm items-center gap-1 bg-green-700 text-white px-2 py-1 rounded">
+                                    {props.ratingDelivery} <TiStar />
+                                </span>
+                                Delivery
+                            </span>
+                        )
+                        }
                     </div>
                     <h4 className='mt-2'>Street Food, Benerages, Tea</h4>
                 </div>

@@ -24,17 +24,18 @@ const RestaurantLayout = ({ children: Component, ...props }) => {
         restaurantRating: 4.1,
         deliveryRating: 3.2,
     });
+
     const dispatch = useDispatch();
     const { id } = useParams();
+
     useEffect(() => {
         dispatch(getSpecificRestaurant(id)).then((data) => {
             setRestaurant((prev) => ({
                 ...prev,
                 ...data.payload.restaurant,
             }));
-            //console.log("reL", data.payload.photos)
-            dispatch(getImage(data.payload.photos)).then((data) => {
-
+            console.log("RL ", data)
+            dispatch(getImage(data.payload.restaurant.photos)).then((data) => {
                 setRestaurant((prev) => ({
                     ...prev,
                     images: data.payload.images,

@@ -12,12 +12,12 @@ import { getRestaurant } from "../Redux/Reducers/restaurant/restaurant.action";
 
 const Home = () => {
     const { type } = useParams();
-
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getRestaurant());
     }, []);
+
     return (
         <>
             <div className="my-5 mb-20 md:mb-10">

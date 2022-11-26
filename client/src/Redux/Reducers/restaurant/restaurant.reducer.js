@@ -16,11 +16,11 @@ const restaurantReducer = (state = initialState, action) => {
         case GET_SPECIFIC_RESTAURANT:
             return {
                 ...state,
-                selectedRestaurant: { ...action.payload },
+                selectedRestaurant: { ...action.payload }
             };
         default:
             return {
-                ...state,
+                ...state
             };
     }
 

@@ -5,11 +5,12 @@ import RestaurantCard from '../RestaurantCard';
 import DeliveryCarousel from './DeliveryCarousel';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+
 const Delivery = () => {
     const [restaurantlist, setRestaurantlist] = useState([]);
 
     const reduxState = useSelector((globalState) => globalState.restaurant.restaurants)
-    console.log("okayy", useSelector((globalState) => globalState.restaurant))
+    //console.log("okayy", useSelector((globalState) => globalState.restaurant))
     useEffect(() => {
         reduxState && setRestaurantlist(reduxState);
     }, [reduxState])
