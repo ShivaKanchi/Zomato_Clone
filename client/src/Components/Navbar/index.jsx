@@ -35,12 +35,16 @@ const SmallNavbar = ({ user, isDropdownOpen, setIsDropdownOpen, signIn, signUp }
     }
     return (
         <div className="flex w-full items-center justify-between lg:hidden">
+
             <div className="w-28">
-                <img
-                    src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
-                    alt="ZomatoLogo"
-                    className="w-full h-full"
-                />
+                <Link to="/" >
+                    <img
+                        src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
+                        alt="ZomatoLogo"
+                        className="w-full h-full cursor-pointer"
+                    />
+                </Link>
+
             </div>
             <div className="flex items-center gap-3 relative">
 
@@ -111,12 +115,15 @@ const LargeNavbar = ({ user, isDropdownOpen, setIsDropdownOpen, signIn, signUp }
         <div className="w-full items-center justify-between hidden lg:flex px-14">
             <div className="gap-4  items-center justify-around flex">
                 <div className="w-20">
-                    <img
-                        src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
-                        alt="logo"
-                        className="w-full h-full"
-                    />
+                    <Link to="/">
+                        <img
+                            src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
+                            alt="logo"
+                            className="w-full h-full cursor-pointer"
+                        />
+                    </Link>
                 </div>
+
             </div>
             <div className="w-3/4 bg-white shadow-md p-3 flex items-center gap-3 border border-gray-200 rounded">
                 <div className="flex items-center gap-2 border-r-2 border-gray-300 pr-2">
@@ -177,7 +184,7 @@ const LargeNavbar = ({ user, isDropdownOpen, setIsDropdownOpen, signIn, signUp }
                     </>
                 )}
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -20,7 +20,7 @@ const RestaurantCard = (props) => {
         <Link to={`/restaurant/${props._id}/overview`} className="w-full md:w-1/2 lg:w-1/3">
             <div className="bg-white p-4 w-full rounded-2xl transition duration-700 ease-in-out  sm:shadow-md md:shadow-none hover:drop-shadow-lg">
                 <div className="w-full relative">
-                    <div className="w-full bottom-4 flex items-end justify-between">
+                    <div className="w-full h-60 bottom-4 flex items-end justify-between">
                         <div className="flex flex-col gap-2 items-start absolute">
                             {props.isPro && (
                                 <span className="bg-zomato-400 text-white px-2 py-1 rounded text-sm">

@@ -2,8 +2,12 @@ import React, { Fragment, useState, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useParams } from "react-router-dom";
 import Rating from "react-rating-stars-component";
+import { useDispatch } from "react-redux";
+import { postReview } from "../../Redux/Reducers/review/review.action";
 
 const ReviewModal = ({ isOpen, setIsOpen, type }) => {
+    const dispatch = useDispatch();
+    const { id } = useParams();
     const [reviewData, setReviewData] = useState({
         subject: "",
         reviewText: "",
@@ -12,22 +16,6 @@ const ReviewModal = ({ isOpen, setIsOpen, type }) => {
         rating: 0,
     });
 
-    useEffect(() => {
-        if (type === "delivery")
-            setReviewData((prev) => ({
-                ...prev,
-                isFoodReview: true,
-                isRestaurantReview: false,
-            }));
-        else if (type === "dining")
-            setReviewData((prev) => ({
-                ...prev,
-                isRestaurantReview: true,
-                isFoodReview: false,
-            }));
-    }, [type]);
-
-    const { id } = useParams();
 
     const handleChange = (event) => {
         setReviewData((prev) => ({
@@ -61,6 +49,7 @@ const ReviewModal = ({ isOpen, setIsOpen, type }) => {
     };
 
     const submit = () => {
+        dispatch(postReview({ ...reviewData, restaurant: id }));
         closeModal();
         setReviewData({
             subject: "",
@@ -70,6 +59,21 @@ const ReviewModal = ({ isOpen, setIsOpen, type }) => {
             rating: 0,
         });
     };
+
+    useEffect(() => {
+        if (type === "delivery")
+            setReviewData((prev) => ({
+                ...prev,
+                isFoodReview: true,
+                isRestaurantReview: false,
+            }));
+        else if (type === "dining")
+            setReviewData((prev) => ({
+                ...prev,
+                isRestaurantReview: true,
+                isFoodReview: false,
+            }));
+    }, [type]);
 
     return (
         <>

@@ -36,7 +36,11 @@ const Router = express.Router();
 Router.get("/list/:_id", async (req, res) => {
     try {
         const { _id } = req.params;
-        const menus = await MenuModel.findByid(_id)
+        const menus = await MenuModel.findById(_id)
+        return res.status(201).json({
+            success: true,
+            menus
+        });
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }

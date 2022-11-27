@@ -24,16 +24,17 @@ const Overview = () => {
     const [reviews, setReviews] = useState([]);
     const { id } = useParams;
     const dispatch = useDispatch();
+    //  const updatedReviews = useSelector(
+    // (globalState) => globalState.restaurant.selectedRestaurant
+    // );
     const reduxState = useSelector(
         (globalState) => globalState.restaurant.selectedRestaurant
     );
     useEffect(() => {
         if (reduxState) {
             setRestaurant(reduxState);
-
         }
     }, [reduxState]);
-
     useEffect(() => {
         if (reduxState) {
             dispatch(getImage(restaurant.menuImage)).then((data) => {
@@ -46,8 +47,14 @@ const Overview = () => {
                 setReviews(data.payload.reviews);
             });
         }
-    }, [reduxState]);
+    }, [menuImages]);
 
+    // useEffect(() => {
+    //     if (updatedReviews) {
+    //         setReviews(updatedReviews);
+    //     }
+    // }, [updatedReviews]);
+    //  console.log("reviews oveeview", reviews);
     const slideConfig = {
         slidesPerView: 1,
         spaceBetween: 10,
@@ -131,7 +138,7 @@ const Overview = () => {
                             size={24}
                             activeColor="#ffd700"
                         /> */}
-                        {reviews.map((review, index) => (
+                        {reviews?.map((review, index) => (
                             <ReviewCard  {...review} key={index} />
                         ))}
                     </div>

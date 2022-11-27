@@ -1,25 +1,22 @@
 import React, { useState } from 'react'
 import ReviewCard from "../Reviews/ReviewCard";
 import AddReviewCard from "../Reviews/AddReviewCard";
-
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { getReview } from '../../Redux/Reducers/review/review.action';
 const Reviews = () => {
+
     const [reviews, setReviews] = useState([
 
-        {
-            rating: 3.5,
-            isRestaurantReview: false,
-            createdAt: "Fri Oct 14 2022 20:20:34 GMT+0530 (India Standard Time)",
-            reviewText: "Very bad experience.",
-            color: "red-100"
-        },
-        {
-            rating: 4.5,
-            isRestaurantReview: false,
-            createdAt: "Fri Oct 14 2022 20:19:34 GMT+0530 (India Standard Time)",
-            reviewText: "Very good experience.",
-            color: "green-700"
-        }
     ]);
+    const { id } = useParams()
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getReview(id)).then((data) => {
+            setReviews(data.payload.reviews);
+        });
+    }, [])
     return (
         <div className="w-full h-full flex-col md:flex md:flex-row relative gap-5">
             <div className="w-full md:w-8/12 flex flex-col gap-3">
