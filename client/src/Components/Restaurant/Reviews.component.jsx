@@ -7,16 +7,23 @@ import { useEffect } from 'react';
 import { getReview } from '../../Redux/Reducers/review/review.action';
 const Reviews = () => {
 
-    const [reviews, setReviews] = useState([
-
-    ]);
+    const [reviews, setReviews] = useState([]);
     const { id } = useParams()
     const dispatch = useDispatch()
+    const updatedReviews = useSelector(
+        (globalState) => globalState.review.reviews.reviews
+    );
     useEffect(() => {
         dispatch(getReview(id)).then((data) => {
             setReviews(data.payload.reviews);
         });
     }, [])
+
+    useEffect(() => {
+        if (updatedReviews) {
+            setReviews(updatedReviews);
+        }
+    }, [updatedReviews]);
     return (
         <div className="w-full h-full flex-col md:flex md:flex-row relative gap-5">
             <div className="w-full md:w-8/12 flex flex-col gap-3">

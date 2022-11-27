@@ -9,7 +9,7 @@ const Menu = () => {
     const reduxState = useSelector(
         (globalState) => globalState.restaurant.selectedRestaurant
     );
-    console.log("MEnucomp", reduxState);
+    //   console.log("MEnucomp", reduxState);
     useEffect(() => {
         if (reduxState) {
             dispatch(getImage(reduxState.menuImage)).then((data) => {

@@ -2,12 +2,15 @@ import React, { Fragment, useState, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useParams } from "react-router-dom";
 import Rating from "react-rating-stars-component";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { postReview } from "../../Redux/Reducers/review/review.action";
 
 const ReviewModal = ({ isOpen, setIsOpen, type }) => {
     const dispatch = useDispatch();
     const { id } = useParams();
+    const reduxState = useSelector(
+        (globalState) => globalState.restaurant.selectedRestaurant
+    );
     const [reviewData, setReviewData] = useState({
         subject: "",
         reviewText: "",
@@ -49,7 +52,7 @@ const ReviewModal = ({ isOpen, setIsOpen, type }) => {
     };
 
     const submit = () => {
-        dispatch(postReview({ ...reviewData, restaurant: id }));
+        dispatch(postReview({ ...reviewData, restaurant: reduxState }));
         closeModal();
         setReviewData({
             subject: "",

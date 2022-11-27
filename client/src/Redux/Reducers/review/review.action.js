@@ -9,7 +9,7 @@ export const getReview = (resId) => async (dispatch) => {
             method: "GET",
             url: `http://localhost:4000/review/${resId}`,
         });
-        //  console.log("getting reviews", reviewList.data)
+        console.log("getting reviews", reviewList.data)
         return dispatch({ type: GET_REVIEW, payload: reviewList.data });
     } catch (error) {
         dispatch({ type: "ERROR", payload: error });

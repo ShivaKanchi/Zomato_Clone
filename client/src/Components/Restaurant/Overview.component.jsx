@@ -37,17 +37,16 @@ const Overview = () => {
     }, [reduxState]);
     useEffect(() => {
         if (reduxState) {
-            dispatch(getImage(restaurant.menuImage)).then((data) => {
+            dispatch(getImage(reduxState.menuImage)).then((data) => {
                 const images = [];
                 data.payload.images?.map(({ location }) => images.push(location));
                 setMenuImages(images);
             });
-
-            dispatch(getReview(reduxState?._id)).then((data) => {
+            dispatch(getReview(reduxState._id)).then((data) => {
                 setReviews(data.payload.reviews);
             });
         }
-    }, [menuImages]);
+    }, [reduxState]);
 
     // useEffect(() => {
     //     if (updatedReviews) {
@@ -130,7 +129,7 @@ const Overview = () => {
                 <div className="flex flex-col-reverse">
                     <div className="my-4">
                         <h4 className="text-lg font-medium">
-                            {restaurant.name}Reviews :
+                            {restaurant.name}   Reviews :
                         </h4>
                         {/* <ReactStars
                             count={5}
@@ -143,7 +142,7 @@ const Overview = () => {
                         ))}
                     </div>
 
-                    <div className="my-4">
+                    <div className="my-4 ">
                         <h4 className="text-lg font-medium">Similar Restaurants</h4>
                         <div>
                             <Swiper {...slideConfig}>

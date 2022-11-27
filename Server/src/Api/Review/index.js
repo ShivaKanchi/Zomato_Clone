@@ -14,7 +14,7 @@ const Router = express.Router();
 Router.get("/:resid", async (req, res) => {
     try {
         const { resid } = req.params;
-        const reviews = await ReviewModel.find({ restaurants: resid }).sort({
+        const reviews = await ReviewModel.find({ restaurant: resid }).sort({
             createdAt: -1,
         });
         return res.json({ reviews });
@@ -39,7 +39,7 @@ Router.post(
             const { _id } = req.user;
             const { reviewData } = req.body;
 
-            const review = await ReviewModel.create({ ...reviewData, user: _id });
+            const review = await ReviewModel.create({ ...reviewData, restaurant: _id });
 
             return res.json({ review });
         } catch (error) {
@@ -51,27 +51,27 @@ Router.post(
 
 
 
-/*
-*Route    /create
-*Desc     create a Review
-*Params   none
-*Method   POST
-*Access   Public
-*/
-Router.post("/create", async (req, res) => {
-    try {
-        const { data } = req.body;
-        const newData = await ReviewModel.create({
-            ...data
-        });
-        return res.status(201).json({
-            success: true,
-            Order: newData
-        });
-    } catch (error) {
-        return res.status(500).json({ error: error.message });
-    }
-})
+// /*
+// *Route    /create
+// *Desc     create a Review
+// *Params   none
+// *Method   POST
+// *Access   Public
+// */
+// Router.post("/create", async (req, res) => {
+//     try {
+//         const { data } = req.body;
+//         const newData = await ReviewModel.create({
+//             ...data
+//         });
+//         return res.status(201).json({
+//             success: true,
+//             Order: newData
+//         });
+//     } catch (error) {
+//         return res.status(500).json({ error: error.message });
+//     }
+// })
 
 /**
  * Route     /delete/:id
