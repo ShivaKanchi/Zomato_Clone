@@ -32,7 +32,7 @@ Router.get("/:_id", async (req, res) => {
 *Method   POST
 *Access   Public
 */
-Router.post("/", upload.single('file'), async (req, res) => {
+Router.post("/", upload.single("file"), async (req, res) => {
     try {
         const file = req.file;
 
@@ -41,22 +41,24 @@ Router.post("/", upload.single('file'), async (req, res) => {
             Key: file.originalname,
             Body: file.buffer,
             ContentType: file.mimetype,
-            ACL: "public-read"
-        }
+            ACL: "public-read", // Access Control List
+        };
 
         const uploadImage = await s3Upload(bucketOptions);
+
         const dbUpload = await ImageModel.create({
             images: [
                 {
-                    location: uploadImage.Location
+                    location: uploadImage.Location,
                 },
             ],
         });
+
         return res.status(200).json({ dbUpload });
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }
-})
+});
 
 
 
