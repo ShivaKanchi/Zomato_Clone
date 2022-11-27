@@ -36,7 +36,7 @@ Router.post("/", upload.single('file'), async (req, res) => {
     try {
         const file = req.file;
         const bucketOptions = {
-            Bucket: "zomato_clone",
+            Bucket: "zomato-clone-shivakanchi",
             Key: file.originalname,
             Body: file.buffer,
             ContentType: file.mimetype,
@@ -68,7 +68,7 @@ Router.post("/", upload.single('file'), async (req, res) => {
 //     try {
 //         const file = req.files;
 //         const bucketOptions = {
-//             Bucket: "zomato_clone",
+//             Bucket: "zomato-clone-shivakanchi",
 //             Key: file.originalname,
 //             Body: file.buffer,
 //             ContentType: file.mimetype,

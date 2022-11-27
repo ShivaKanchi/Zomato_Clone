@@ -166,6 +166,8 @@ const Overview = () => {
                                     <MenuSimilarRestaurantCard
                                         image="https://b.zmtcdn.com/data/pictures/chains/4/844/c2aff8d94b55d820df98053ce1b8d9cb_featured_v2.jpg"
                                         title="Khan Chacha"
+                                        ratingDelivery={3}
+                                        ratingDining={4}
                                     />
                                 </SwiperSlide>
                             </Swiper>
@@ -175,9 +177,9 @@ const Overview = () => {
                     <div className="my-4 w-full md:hidden flex flex-col gap-4">
                         <MapView
                             title="McDonald's"
-                            phno="+918928656498"
-                            mapLocation={getLatLong("19.203804, 72.848297")}
-                            address="Akatsuki, Laxmi Narayan Lane, Mathuradas Road, Kandivali West, Maharashtra 400067"
+                            phno={restaurant.contact}
+                            mapLocation={getLatLong(restaurant.maplocation)}
+                            address={restaurant.address}
                         />
                     </div>
                 </div>
@@ -188,9 +190,9 @@ const Overview = () => {
             >
                 <MapView
                     title="McDonald's"
-                    phno="+918928656498"
+                    phno={restaurant.contact}
                     mapLocation={getLatLong("19.203804, 72.848297")}
-                    address="Akatsuki, Laxmi Narayan Lane, Mathuradas Road, Kandivali West, Maharashtra 400067"
+                    address={restaurant.address}
                 />
             </aside>
         </div>

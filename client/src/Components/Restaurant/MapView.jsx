@@ -2,13 +2,16 @@ import React from 'react'
 import { MdContentCopy } from "react-icons/md";
 import { FaDirections } from "react-icons/fa";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
 const Mapview = (props) => {
+    const position = props.mapLocation
     return (
         <>
             <div >
                 <h4 className="text-xl font-normal">Call</h4>
-                <h5 className="text-zomato-400 font-small">{props.phno}</h5>
+                <h5 className="text-zomato-400 font-small">+91 {props.phno}</h5>
             </div>
             <div>
                 <h4 className="text-xl font-normal">Address</h4>
@@ -18,7 +21,7 @@ const Mapview = (props) => {
                 <h4 className="text-xl font-normal">Direction</h4>
                 <div className="w-full h-48">
                     <MapContainer
-                        center={props.mapLocation}
+                        center={position}
                         zoom={13}
                         scrollWheelZoom={false}
                         className="h-full"
@@ -28,10 +31,21 @@ const Mapview = (props) => {
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 
                         />
-                        <Marker position={props.mapLocation}>
+                        <Marker position={position}>
                             <Popup>{props.title}</Popup>
                         </Marker>
                     </MapContainer>
+                    {/* <MapContainer center={props.mapLocation} zoom={13} scrollWheelZoom={false}>
+                        <TileLayer
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        <Marker position={props.mapLocation}>
+                            <Popup>
+                                {props.title}
+                            </Popup>
+                        </Marker>
+                    </MapContainer> */}
                 </div>
             </div>
             <div className="flex items-center gap-3">
