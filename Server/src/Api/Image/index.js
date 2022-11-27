@@ -35,6 +35,7 @@ Router.get("/:_id", async (req, res) => {
 Router.post("/", upload.single('file'), async (req, res) => {
     try {
         const file = req.file;
+
         const bucketOptions = {
             Bucket: "zomato-clone-shivakanchi",
             Key: file.originalname,
@@ -42,13 +43,16 @@ Router.post("/", upload.single('file'), async (req, res) => {
             ContentType: file.mimetype,
             ACL: "public-read"
         }
+
         const uploadImage = await s3Upload(bucketOptions);
         const dbUpload = await ImageModel.create({
-            images: [{
-                location: uploadImage.Location
-            }]
-        })
-        return res.status(200).json({ uploadImage });
+            images: [
+                {
+                    location: uploadImage.Location
+                },
+            ],
+        });
+        return res.status(200).json({ dbUpload });
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }
