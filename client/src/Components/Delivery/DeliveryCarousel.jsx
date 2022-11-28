@@ -83,7 +83,6 @@ const DeliveryCarousel = () => {
         },
         modules: [Navigation, Autoplay, Navigation],
         className: "mySwiper",
-        navigation: true,
     };
 
     return (

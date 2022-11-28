@@ -7,16 +7,18 @@ import AddressList from "../Components/Checkout/AddressList";
 //redux
 import { useSelector } from "react-redux";
 const Checkout = () => {
-    const cart = useSelector((glocalState) => glocalState.cart.cart);
-    const user = useSelector((glocalState) => glocalState.user);
+    const cart = useSelector((globalState) => globalState.cart.cart);
+    const user = useSelector((globalState) => globalState.user);
+    const restaurant = useSelector((globalState) => globalState.restaurant.selectedRestaurant);
+    console.log(restaurant)
     const address = [
         {
             name: "Home",
-            address: "Lajipada, Sanjay Nagar, Malad",
+            address: "Building no.1,Kandiavli,Mumbai",
         },
         {
             name: "Work",
-            address: "LaxmiNarayan Mandir, Kandivali",
+            address: "Building no.9,Kandiavli,Mumbai",
         },
     ];
 
@@ -47,21 +49,21 @@ const Checkout = () => {
     return (
         <div className="my-3 flex flex-col gap-3 items-center">
             <h1 className="text-xl text-center md:text-2xl font-bold">Checkout</h1>
-            <div className="w-full md:w-3/5 rounded-lg py-3 drop-shadow-2xl bg-white flex flex-col items-center p-4">
-                <h3 className="text-lg font-semibold">Summary</h3>
+            <div className="w-full md:w-3/5 rounded-lg py-3 drop-shadow-2xl bg-gray-200 flex flex-col items-center p-4">
+                <h3 className="text-xl font-semibold">Summary</h3>
                 <div className="flex w-full flex-col gap-2 items-center">
-                    <h5 className="text-base tracking-wider">ORDER FROM</h5>
-                    <div className="flex w-full flex-col items-center text-gray-400">
-                        <h4>Domino's Pizza</h4>
-                        <small>GT World Mall, Magadi Road, NCR Noida</small>
+                    <h5 className="text-sm tracking-wider">ORDERS FROM</h5>
+                    <div className="flex w-full flex-col items-center text-gray-600">
+                        <h4>{restaurant.name}</h4>
+                        <small>{restaurant.address}</small>
                     </div>
-                    <div className="my-4 h-32 overflow-y-scroll px-4 flex flex-col gap-2 w-full md:w-3/5">
+                    <div className="my-4 h-50 overflow-y-scroll px-4 flex flex-col gap-2 w-full md:w-3/5">
                         {cart.map((item) => (
                             <FoodItem key={item._id} {...item} />
                         ))}
                     </div>
                     <div className="flex flex-col gap-3 w-full md:w-3/5 items-center">
-                        <h4 className="text-xl font-semibold">Choose Address</h4>
+                        <h4 className="text-xl font-semibold">Choose Address or On Call</h4>
                         <AddressList address={address} />
                     </div>
                 </div>

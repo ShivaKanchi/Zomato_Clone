@@ -6,7 +6,7 @@ const AddressList = (props) => {
     const [selected, setSelected] = useState(props.address[0]);
 
     return (
-        <div className="w-full px-4 py-16">
+        <div className="w-full px-4 pb-16">
             <div className="mx-auto w-full max-w-md">
                 <RadioGroup value={selected} onChange={setSelected}>
                     <RadioGroup.Label className="sr-only">

@@ -3,7 +3,7 @@ import ImageViewer from "react-simple-image-viewer";
 import PhotoCollection from "./PhotoCollection";
 
 const Photos = (props) => {
-    const [photos, setPhotos] = useState([
+    const [photos] = useState([
         "https://b.zmtcdn.com/data/pictures/chains/1/18624001/a26ce254d26a3c73d83fa91f01d8f29c.jpg",
         "https://b.zmtcdn.com/data/pictures/chains/1/18624001/d34cbcc796c1fc940aa0f919da4c71c9.jpg",
         "https://b.zmtcdn.com/data/pictures/chains/1/18624001/3a65e3e2c0e69b928f063514a951a6a2.jpg",

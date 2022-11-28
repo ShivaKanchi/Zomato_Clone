@@ -1,8 +1,6 @@
 // redux type
 import { GET_IMAGE } from "./image.type";
 import axios from "axios";
-import dotenv from "dotenv";
-dotenv.config()
 export const getImage = (_id) => async (dispatch) => {
     try {
         const image = await axios({

@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from "classnames";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 const MenuCategory = (props) => {
     const { id } = useParams();
     return (

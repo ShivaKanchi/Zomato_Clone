@@ -2,8 +2,8 @@ import React from 'react'
 import { MdContentCopy } from "react-icons/md";
 import { FaDirections } from "react-icons/fa";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { useSelector } from 'react-redux';
-import { useState } from 'react';
+//import { useSelector } from 'react-redux';
+//import { useState } from 'react';
 
 const Mapview = (props) => {
     const position = props.mapLocation

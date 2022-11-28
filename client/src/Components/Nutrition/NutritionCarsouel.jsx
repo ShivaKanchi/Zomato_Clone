@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import NutritionCarouselCard from "./NutritionCarsouelCard";
 
 const NutritionCarsouel = () => {
-    const [categories, setCategories] = useState([
+    const [categories] = useState([
         {
             image:
                 "https://dote.zmtcdn.com/prod/data/admin_assets/images/baf809f0523c43d29f51d1e05f9f46be_1629263595.png?output-format=webp",

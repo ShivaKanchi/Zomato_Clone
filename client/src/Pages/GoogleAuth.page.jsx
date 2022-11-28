@@ -14,7 +14,7 @@ const GoogleAuth = () => {
     }, []);
     return <>
         <div className="flex items-center justify-center">
-            <img src="https://i.pinimg.com/originals/b0/70/1a/b0701aa6ae2a696e7caf2f4a57eef5e8.jpg" />
+            <img src="https://i.pinimg.com/originals/b0/70/1a/b0701aa6ae2a696e7caf2f4a57eef5e8.jpg" alt="Have A Nice Day" />
         </div>
     </>
 }
