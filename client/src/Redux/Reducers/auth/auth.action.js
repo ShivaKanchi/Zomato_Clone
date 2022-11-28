@@ -6,7 +6,7 @@ export const signIn = (userData) => async (dispatch) => {
     try {
         const User = await axios({
             method: "POSt",
-            url: `${process.env.REACT_APPCLIENT_URL}/auth/login`,
+            url: `http://localhost:4000/auth/login`,//http://localhost:4000  ${process.env.REACT_APPCLIENT_URL}
             data: { credentials: userData }
         });
         localStorage.setItem("zomatoUser", JSON.stringify({ token: User.data.token }));
@@ -23,7 +23,7 @@ export const signUp = (userData) => async (dispatch) => {
     try {
         const User = await axios({
             method: "POSt",
-            url: `${process.env.REACT_APPCLIENT_URL}/auth/register`,
+            url: `http://localhost:4000/auth/register`,
             data: { credentials: userData }
         });
         localStorage.setItem("zomatoUser", JSON.stringify({ token: User.data.token }));

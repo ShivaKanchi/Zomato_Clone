@@ -1,13 +1,13 @@
-import axios from "axios";
-import dotenv from "dotenv";
 // redux type
 import { GET_IMAGE } from "./image.type";
-
+import axios from "axios";
+import dotenv from "dotenv";
+dotenv.config()
 export const getImage = (_id) => async (dispatch) => {
     try {
         const image = await axios({
             method: "GET",
-            url: `${REACT_APPCLIENT_URL}/image/${_id}`,
+            url: `http://localhost:4000/image/${_id}`,
         });
         // console.log("imageeaction", image)
         return dispatch({ type: GET_IMAGE, payload: image.data.image });

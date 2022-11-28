@@ -1,13 +1,12 @@
-import axios from "axios";
-import dotenv from "dotenv";
-// redux types
 import { GET_USER, SELF, CLEAR_USER } from "./user.type";
+import axios from "axios";
+
 
 export const getUser = (_id) => async (dispatch) => {
     try {
         const User = await axios({
             method: "GET",
-            url: `${REACT_APPCLIENT_URL}/user/${_id}`,
+            url: `http://localhost:4000/user/${_id}`,
         });
 
         return dispatch({ type: GET_USER, payload: User.data });
@@ -20,7 +19,7 @@ export const getMySelf = () => async (dispatch) => {
     try {
         const User = await axios({
             method: "GET",
-            url: `${REACT_APPCLIENT_URL}/user/`,
+            url: `http://localhost:4000/user/`,
         });
 
         //        console.log(User.data.user);

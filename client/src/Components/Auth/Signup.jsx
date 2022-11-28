@@ -30,7 +30,7 @@ const Signup = ({ isOpen, setIsOpen }) => {
         setUserData({ email: "", password: "", fullname: "" });
     };
 
-    const googleSignUp = () => (window.location.href = `${process.env.REACT_APPCLIENT_URL}/auth/google`);
+    const googleSignUp = () => (window.location.href = `http://localhost:4000/auth/google`);
 
     return (
         <>
