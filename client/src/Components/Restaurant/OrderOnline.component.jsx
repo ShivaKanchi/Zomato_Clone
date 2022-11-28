@@ -25,13 +25,15 @@ const Orderonline = () => {
     const restaurant = useSelector(
         (globaldata) => globaldata.restaurant.selectedRestaurant
     );
+
     useEffect(() => {
         restaurant &&
             dispatch(getFoodList(restaurant.menu)).then((data) => {
+                //  console.log("MEU FOM OO", data.payload.menus.menus)
                 setMenu(data.payload.menus.menus);
             });
     }, [restaurant]);
-
+    console.log("OOMENU", menu)
     return (
         <>
             <div className="w-full flex items-start">

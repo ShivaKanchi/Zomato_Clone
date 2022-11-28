@@ -9,7 +9,7 @@ export const getImage = (_id) => async (dispatch) => {
             method: "GET",
             url: `http://localhost:4000/image/${_id}`,
         });
-
+        // console.log("imageeaction", image)
         return dispatch({ type: GET_IMAGE, payload: image.data.image });
     } catch (error) {
         return dispatch({ type: "ERROR", payload: error });

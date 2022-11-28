@@ -1,7 +1,7 @@
 import React from 'react'
 import FoodItem from "./FoodItem";
 const FoodList = (props) => {
-
+    console.log("foodlist ", props)
     return (
         <>
             <div className="flex flex-col gap-3">

@@ -11,31 +11,31 @@ const FoodItem = (props) => {
     const dispatch = useDispatch();
 
     const cart = useSelector((globalState) => globalState.cart.cart);
-
     useEffect(() => {
-        dispatch(getFood(props._id))
-            .then((data) => {
-                setFood(data.payload.food);
-                dispatch(getImage(data.payload.food.photos)).then((data) => {
-                    const { images } = data.payload;
-                    images.length &&
-                        setFood((prev) => ({ ...prev, image: images[0].location }));
-                });
-                return data.payload.food;
-            })
-            .then((data) => {
-                cart.forEach((each) => {
-                    if (each._id === data._id) {
-                        setFood((prev) => ({ ...prev, isAddedToCart: true }));
-                    }
-                });
+        dispatch(getFood(props._id)).then((data) => {
+            setFood(data.payload.food);
+            // console.log("imae goof get food", data.payload.food.photos)
+            dispatch(getImage(data.payload.food.photos)).then((data) => {
+                //  console.log("imae goof get iamge", data)
+                const { images } = data.payload;
+                images.length &&
+                    setFood((prev) => ({ ...prev, image: images[0].location }));
             });
+            return data.payload.food;
+        }).then((data) => {
+            cart.forEach((each) => {
+                if (each._id === data._id) {
+                    setFood((prev) => ({ ...prev, isAddedToCart: true }));
+                }
+            });
+        });
     }, [cart]);
 
     const addFoodToCart = () => {
         dispatch(addToCart({ ...food, quantity: 1, totalPrice: food.price }));
         setFood((prev) => ({ ...prev, isAddedToCart: true }));
     };
+    //  console.log("FOOditem", food)
     return (
         <>
             <div className="flex items-start gap-2">
@@ -67,8 +67,18 @@ const FoodItem = (props) => {
                             </button>
                         </div>
                         <div className="hidden md:block w-2/12">
-                            <button className="flex items-center justify-center gap-2 text-zomato-400 bg-zomato-50 border-zomato-400 px-2 py-1 rounded-lg">
-                                <AiOutlinePlus /> Add
+                            <button
+                                className="flex items-center justify-center gap-2 text-zomato-400 bg-zomato-50 border-zomato-400 px-2 py-1 rounded-lg"
+                                disabled={food?.isAddedToCart}
+                                onClick={addFoodToCart}
+                            >
+                                {food.isAddedToCart ? (
+                                    "Added"
+                                ) : (
+                                    <>
+                                        <AiOutlinePlus /> Add
+                                    </>
+                                )}
                             </button>
                         </div>
                     </div>

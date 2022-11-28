@@ -1,6 +1,7 @@
 import React from 'react'
 import MenuCategory from "./MenuCategory"
 const MenuListContainer = (props) => {
+    // console.log('menuslist container ', props)
     return (
         <>
             <div className="w-full flex flex-col gap-3 cursor-pointer">
