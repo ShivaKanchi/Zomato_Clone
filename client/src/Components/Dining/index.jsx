@@ -1,4 +1,5 @@
 import React from 'react'
+import DeliveryCarousel from '../Delivery/DeliveryCarousel'
 import DiningCarousel from './DiningCarousel'
 const Dining = () => {
     return (
@@ -10,6 +11,7 @@ const Dining = () => {
                 Explore curated lists of top restaurants, cafes, pubs, and bars in Mumbai, based on trends
             </p>
             <DiningCarousel />
+            <DeliveryCarousel />
         </div>
     )
 }

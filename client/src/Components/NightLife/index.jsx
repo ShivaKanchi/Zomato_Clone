@@ -1,4 +1,5 @@
 import React from 'react'
+import DeliveryCarousel from '../Delivery/DeliveryCarousel'
 import NightLifeCarousel from './NightLifeCarousel'
 
 const NightLife = () => {
@@ -11,6 +12,7 @@ const NightLife = () => {
                 Groove to the rhythm of Mumbai's vibrant nightlife with spots made for moments after sundown.
             </p>
             <NightLifeCarousel />
+            <DeliveryCarousel />
         </div>
     )
 }
