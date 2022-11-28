@@ -4,16 +4,21 @@ import { Dialog, Transition } from "@headlessui/react";
 import Rating from "react-rating-stars-component";
 import { useDispatch, useSelector } from "react-redux";
 import { postReview } from "../../Redux/Reducers/review/review.action";
+import { useParams } from "react-router-dom";
 
 const ReviewModal = ({ isOpen, setIsOpen, type }) => {
-    const dispatch = useDispatch();
-    // const { id } = useParams();
     const reduxState = useSelector(
-        (globalState) => globalState.restaurant.selectedRestaurant
+        (globalState) => globalState.restaurant.selectedRestaurant._id
     );
+    const dispatch = useDispatch();
+    const { id } = useParams();
+    console.log("id rm", id)
+    console.log("REMM", reduxState)
+
     const [reviewData, setReviewData] = useState({
         subject: "",
         reviewText: "",
+        restaurant: reduxState,
         isRestaurantReview: false,
         isFoodReview: false,
         rating: 0,
@@ -50,9 +55,10 @@ const ReviewModal = ({ isOpen, setIsOpen, type }) => {
     const closeModal = () => {
         setIsOpen(false);
     };
-
+    // console.log("AHHHHHH", reduxState, reviewData)
     const submit = () => {
-        dispatch(postReview({ ...reviewData, restaurant: reduxState }));
+
+        dispatch(postReview({ ...reviewData, restaurant: id }));
         closeModal();
         setReviewData({
             subject: "",
@@ -64,6 +70,7 @@ const ReviewModal = ({ isOpen, setIsOpen, type }) => {
     };
 
     useEffect(() => {
+
         if (type === "delivery")
             setReviewData((prev) => ({
                 ...prev,

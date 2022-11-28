@@ -39,7 +39,7 @@ Router.post(
             const { _id } = req.user;
             const { reviewData } = req.body;
 
-            const review = await ReviewModel.create({ ...reviewData, restaurant: _id });
+            const review = await ReviewModel.create({ ...reviewData, user: _id });
 
             return res.json({ review });
         } catch (error) {

@@ -18,6 +18,7 @@ export const getReview = (resId) => async (dispatch) => {
 
 export const postReview = (reviewData) => async (dispatch) => {
     try {
+        console.log("REVIEWACTIOMMM", reviewData)
         await axios({
             method: "POST",
             url: `http://localhost:4000/review/new`,
