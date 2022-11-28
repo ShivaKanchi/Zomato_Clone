@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import dotenv from "dotenv";
 // redux
 import { GET_REVIEW, POST_REVIEW } from "./review.type";
 
@@ -7,7 +7,7 @@ export const getReview = (resId) => async (dispatch) => {
     try {
         const reviewList = await axios({
             method: "GET",
-            url: `http://localhost:4000/review/${resId}`,
+            url: `${REACT_APPCLIENT_URL}/review/${resId}`,
         });
         // console.log("getting reviews", reviewList.data)
         return dispatch({ type: GET_REVIEW, payload: reviewList.data });
@@ -20,7 +20,7 @@ export const postReview = (reviewData) => async (dispatch) => {
     try {
         await axios({
             method: "POST",
-            url: `http://localhost:4000/review/new`,
+            url: `${REACT_APPCLIENT_URL}/review/new`,
             data: { reviewData },
         });
 

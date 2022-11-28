@@ -1,36 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import CheckoutLayout from "../Layouts/Checkout.layout";
 import { BsShieldLockFill } from "react-icons/bs";
 // components
 import FoodItem from "../Components/Cart/FoodItem";
 import AddressList from "../Components/Checkout/AddressList";
-
+//redux
+import { useSelector } from "react-redux";
 const Checkout = () => {
-    const [cart, setCart] = useState([
-        {
-
-            image: "https://b.zmtcdn.com/data/dish_photos/af1/fd1b012ebfbe82f2e5212b702ce19af1.jpg",
-            name: "Butter Pancakes with Bacon",
-            rating: 4.5,
-            price: 200,
-            description: "Rashers and bourbon caramel sauce.",
-            quantity: 3,
-            totalPrice: 600,
-            _id: "1"
-        },
-        {
-
-            image: "https://b.zmtcdn.com/data/dish_photos/077/28e7baadea310b7b337fd2fb3f653077.jpg",
-            name: "Amritsari Fish Tikka",
-            rating: 5,
-            price: 250,
-            quantity: 1,
-            totalPrice: 250,
-            description: "Fish marinated in flavourful lemon-chilli masala roasted in the tandoor with care. Serves 2-3 people.",
-            _id: "2"
-        },
-    ]);
-
+    const cart = useSelector((glocalState) => glocalState.cart.cart);
+    const user = useSelector((glocalState) => glocalState.user);
     const address = [
         {
             name: "Home",
@@ -54,8 +32,8 @@ const Checkout = () => {
                 console.log(data);
             },
             prefill: {
-                name: "Shiva",
-                email: "text@email.com",
+                name: user.fullname,
+                email: user.email,
             },
             theme: {
                 color: "#e23744",

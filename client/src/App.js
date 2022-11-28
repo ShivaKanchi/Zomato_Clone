@@ -18,12 +18,14 @@ import RestaurantLayout from './Layouts/Restaurant.layout';
 import { useDispatch } from "react-redux";
 import { getMySelf } from "./Redux/Reducers/user/user.action";
 import { useEffect } from 'react';
+import { getCart } from './Redux/Reducers/cart/cart.action';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getMySelf());
+    dispatch(getCart())
   }, [localStorage]);
 
   return (
