@@ -123,6 +123,9 @@ Image(RestaurantImg,MenuImg,FoodImg)
 | ` email `      | `string` | **Required**. To login  |
 | ` password `      | `string` | **Required**. To login |
 
+### Postman Document
+
+https://documenter.getpostman.com/view/23530707/2s8Yt1qohG
 ...
 
 
