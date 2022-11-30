@@ -6,7 +6,7 @@ export const getRestaurant = () => async (dispatch) => {
     try {
         const restaurantList = await axios({
             method: "GET",
-            url: `http://localhost:4000/restaurant/?city=Mumbai`,
+            url: `${process.env.REACT_APP_CLIENT_URL}/restaurant/?city=Mumbai`,
         });
         //console.log("getRestaurant", restaurantList.data);
         return dispatch({
@@ -22,7 +22,7 @@ export const getSpecificRestaurant = (_id) => async (dispatch) => {
     try {
         const restaurantList = await axios({
             method: "GET",
-            url: `http://localhost:4000/restaurant/${_id}`,
+            url: `${process.env.REACT_APP_CLIENT_URL}/restaurant/${_id}`,
         });
         // console.log("getspecificrestaurant", restaurantList.data)
         return dispatch({

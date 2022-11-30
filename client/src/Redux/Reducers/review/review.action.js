@@ -7,7 +7,7 @@ export const getReview = (resId) => async (dispatch) => {
     try {
         const reviewList = await axios({
             method: "GET",
-            url: `http://localhost:4000/review/${resId}`,
+            url: `${process.env.REACT_APP_CLIENT_URL}/review/${resId}`,
         });
         // console.log("getting reviews", reviewList.data)
         return dispatch({ type: GET_REVIEW, payload: reviewList.data });
@@ -18,10 +18,10 @@ export const getReview = (resId) => async (dispatch) => {
 
 export const postReview = (reviewData) => async (dispatch) => {
     try {
-        console.log("REVIEWACTIOMMM", reviewData)
+        //console.log("REVIEWACTIOMMM", reviewData)
         await axios({
             method: "POST",
-            url: `http://localhost:4000/review/new`,
+            url: `${process.env.REACT_APP_CLIENT_URL}/review/new`,
             data: { reviewData },
         });
 
