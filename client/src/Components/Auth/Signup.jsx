@@ -7,7 +7,6 @@ import { signUp } from '../../Redux/Reducers/auth/auth.action'
 
 const Signup = ({ isOpen, setIsOpen }) => {
     const [userData, setUserData] = useState({
-
         email: "",
         password: "",
         fullname: "",

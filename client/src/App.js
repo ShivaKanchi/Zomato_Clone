@@ -34,7 +34,6 @@ function App() {
         <Route path='/' element={<Navigate to="/delivery" />} />
         <Route path='/:type' element={<Home />} />
         <Route path='/google/:token' element={<GoogleAuth />} />
-
         <Route path="/restaurant/:id" element={<RestaurantLayout><Restaurant /></RestaurantLayout>}>
           <Route path="menu" element={<Menu />} />
           <Route path="photos" element={<Photos />} />
