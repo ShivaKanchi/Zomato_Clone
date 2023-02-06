@@ -8,7 +8,8 @@ User can also givew reviews to a restaurant and also order foods and which is dy
 This Data manipulation and usage is done through MongoDb.
 
 
-
+## Backend Api:
+https://zomato-clone-shiva.onrender.com/
 ## Tech Stack
 
 **Client:** 
@@ -123,6 +124,9 @@ Image(RestaurantImg,MenuImg,FoodImg)
 | ` email `      | `string` | **Required**. To login  |
 | ` password `      | `string` | **Required**. To login |
 
+### Postman Document
+
+https://documenter.getpostman.com/view/23530707/2s8Yt1qohG
 ...
 
 
