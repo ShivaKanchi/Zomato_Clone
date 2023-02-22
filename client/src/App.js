@@ -41,7 +41,6 @@ function App() {
           <Route path="overview" element={<Overview />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
-
         <Route path="/checkout/orders" element={<Checkout />} />
       </Routes>
     </>
