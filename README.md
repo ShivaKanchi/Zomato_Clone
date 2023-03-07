@@ -3,7 +3,7 @@ Hello All this is my first MERN project
 
 
 Its a Clone of Zomato Web page a online food delivery website.
-This website has functionlity of signup and signin os user, user can visit different restaurants and give reviews on restaurants.
+This website has functionlity of signup and signin is user, user can visit different restaurants and give reviews on restaurants.
 User can also givew reviews to a restaurant and also order foods and which is dynamic and automatically callculate the orders and redirects to a payment gateway.
 This Data manipulation and usage is done through MongoDb.
 
