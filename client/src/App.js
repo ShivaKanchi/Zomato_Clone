@@ -24,6 +24,10 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    alert("Backend will take 2 minutes to load")
+  }, [])
+
+  useEffect(() => {
     dispatch(getMySelf());
     dispatch(getCart())
   }, [localStorage]);
