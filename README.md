@@ -8,8 +8,12 @@ User can also givew reviews to a restaurant and also order foods and which is dy
 This Data manipulation and usage is done through MongoDb.
 
 
-## Backend Api:
+## Backend:
+Repository: https://github.com/ShivaKanchi/Zomato_Clone_Server
+
+Api:
 https://zomato-clone-shiva.onrender.com/
+
 ## Tech Stack
 
 **Client:** 
